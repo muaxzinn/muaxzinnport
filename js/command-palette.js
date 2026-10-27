@@ -22,6 +22,7 @@ class CommandPalette {
   }
 
   buildSearchIndex() {
+    this.items = [
       // Sections & Tools
       { title: 'Hero & Developer Profile Bento', desc: 'Jump to developer profile, telemetry and focus domains', url: '#home', type: 'Section' },
       { title: 'The Engineering Methodology', desc: 'Jump to 3-phase methodology bento grid', url: '#philosophy', type: 'Section' },
