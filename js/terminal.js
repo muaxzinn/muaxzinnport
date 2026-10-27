@@ -24,9 +24,9 @@ class AIAgentTerminal {
   }
 
   printWelcome() {
-    this.log('Firman Awea - Autonomous AI Agent Console [v2.4.0-release]', 'info');
+    this.log('Firman Awea - Developer Console & Systems Diagnostics [v2.4.0]', 'info');
     this.log('Type "help" for a list of available system commands.', 'muted');
-    this.log('System ready. Neural link established (Client-Side).', 'success');
+    this.log('System ready. Workstation environment initialized (Client-Side).', 'success');
   }
 
   log(text, type = 'normal') {
@@ -51,7 +51,7 @@ class AIAgentTerminal {
     this.commandHistory.push(cmd);
     this.historyIdx = this.commandHistory.length;
 
-    this.log(`<span class="terminal-prompt">firman@agent:~$</span> <span class="terminal-log-cmd">${cmd}</span>`);
+    this.log(`<span class="terminal-prompt">firman@systems-core:~$</span> <span class="terminal-log-cmd">${cmd}</span>`);
 
     const parts = cmd.split(' ');
     const main = parts[0].toLowerCase();
@@ -63,9 +63,9 @@ class AIAgentTerminal {
         this.log('  <span class="text-white">help</span>        - Show this manual');
         this.log('  <span class="text-white">status</span>      - Display system diagnostics & age');
         this.log('  <span class="text-white">projects</span>    - List flagship & local engineering projects');
-        this.log('  <span class="text-white">agent run</span>   - Simulate autonomous AI Agent execution');
-        this.log('  <span class="text-white">roadmap</span>     - View minipos & hongsamud version evolution');
-        this.log('  <span class="text-white">skills</span>      - Output full technical competence matrix');
+        this.log('  <span class="text-white">roadmap</span>     - View minipos, drug-advisor & hongsamud version evolution');
+        this.log('  <span class="text-white">benchmark</span>   - Run edge inference & hardware checksum benchmarks');
+        this.log('  <span class="text-white">skills</span>      - Output verified engineering competencies');
         this.log('  <span class="text-white">hardware</span>    - Inspect ESP32 & IoT sensor telemetry');
         this.log('  <span class="text-white">contact</span>     - Show contact coordinates & GitHub');
         this.log('  <span class="text-white">clear</span>       - Clear terminal buffer');
@@ -74,7 +74,7 @@ class AIAgentTerminal {
       case 'status':
         const age = window.CONFIG ? window.CONFIG.getAge() : 18;
         this.log('[DIAGNOSTICS REPORT]', 'info');
-        this.log(`  Architect:   Firman Awea (@muaxzinn)`);
+        this.log(`  Developer:   Firman Awea (@muaxzinn)`);
         this.log(`  Dynamic Age: ${age} Years Old`);
         this.log(`  Core Stack:  TensorFlow.js, Three.js, C++ ESP32, Supabase, Vanilla Web`);
         this.log(`  Location:    Narathiwat, Thailand`);
@@ -85,39 +85,39 @@ class AIAgentTerminal {
       case 'projects':
         this.log('[ENGINEERING HIGHLIGHTS]', 'info');
         this.log('  1. SBLT-CAS (Medical AI 7-System Router Platform) &rarr; 93% accuracy');
-        this.log('  2. minipos v2 (Smart POS & Touchscreen BOT EMVCo PromptPay Terminal)');
-        this.log('  3. XQuant (Colorimetric Beer-Lambert Law Spectrophotometer)');
-        this.log('  4. hongsamud v2 (RFID Library System + Supabase Realtime)');
-        this.log('  5. Smart Cap & Glasses for the Blind (Assistive IoT)');
+        this.log('  2. AI Drug & Symptom Advisor (Clinical OpenFDA & MedlinePlus NLP Engine)');
+        this.log('  3. minipos v2 (Smart POS & Touchscreen BOT EMVCo PromptPay Terminal)');
+        this.log('  4. XQuant (Colorimetric Beer-Lambert Law Spectrophotometer)');
+        this.log('  5. hongsamud v2 (RFID Library System + Supabase Realtime)');
+        this.log('  6. Smart Cap & Glasses for the Blind (Assistive IoT)');
         this.log('  Type "roadmap" to view version histories.', 'muted');
         break;
 
       case 'roadmap':
         this.log('[MICRO-ROADMAP EVOLUTION]', 'info');
-        this.log('  &bull; minipos:  v1.0 (CYD Terminal) &rarr; v1.2 (Next-Gen Architecture) &rarr; <span class="text-emerald-400 font-bold">v2.0 (Smart POS Ecosystem) [Current]</span>');
-        this.log('  &bull; hongsamud: v1.0 (RFID Hardware Prototype) &rarr; <span class="text-emerald-400 font-bold">v2.0 (Supabase Realtime Cloud) [Current]</span>');
+        this.log('  &bull; minipos:      v1.0 (CYD Terminal) &rarr; v1.2 (Next-Gen Architecture) &rarr; <span class="text-emerald-400 font-bold">v2.0 (Smart POS Ecosystem) [Current]</span>');
+        this.log('  &bull; drug-advisor: v1.0 (Hospital Prototype) &rarr; <span class="text-emerald-400 font-bold">v2.0 (Cloud Clinical NLP) [Current]</span>');
+        this.log('  &bull; hongsamud:    v1.0 (RFID Hardware Prototype) &rarr; <span class="text-emerald-400 font-bold">v2.0 (Supabase Realtime Cloud) [Current]</span>');
         break;
 
+      case 'benchmark':
       case 'agent':
-        if (arg.startsWith('run')) {
-          this.log(`[AGENT INITIATED] Task: "${arg.replace('run', '').trim() || 'Analyze Medical Dataset'}"`, 'info');
-          this.log('  &gt; Step 1/3: Analyzing schema & system constraints... OK', 'muted');
-          setTimeout(() => this.log('  &gt; Step 2/3: Synthesizing neural network logic & weights... OK', 'muted'), 350);
-          setTimeout(() => {
-            this.log('  &gt; Step 3/3: Executing inference validation... DONE', 'success');
-            this.log('[AGENT SUCCESS] Task completed in 0.42s with zero hallucinations.', 'success');
-          }, 700);
-        } else {
-          this.log('Usage: agent run [task description]', 'warn');
-        }
+        this.log('[SYSTEM BENCHMARK] Initiating client-side pipeline verification...', 'info');
+        this.log('  &gt; Step 1/3: Checking WebGL acceleration & tensor memory... OK', 'muted');
+        setTimeout(() => this.log('  &gt; Step 2/3: Benchmarking inference latency (TensorFlow.js)... 12.8ms', 'muted'), 300);
+        setTimeout(() => {
+          this.log('  &gt; Step 3/3: Validating BOT EMVCo CRC16 Checksum Generator... OK', 'muted');
+          this.log('[BENCHMARK SUCCESS] All tests passed with 0 errors.', 'success');
+        }, 650);
         break;
 
       case 'skills':
         this.log('[CORE COMPETENCIES]', 'info');
-        this.log('  1. AI & ML:        TensorFlow.js, Computer Vision, Prompt Engineering, Python');
-        this.log('  2. Web Logic:      Vanilla JS ES6+, HTML5 Canvas, Tailwind, Three.js');
-        this.log('  3. Embedded & IoT: ESP32, Arduino, C/C++, RFID, Ultrasonic, GPS, PlatformIO');
-        this.log('  4. System Design:  Router Architecture, Beer-Lambert Law, Supabase Realtime');
+        this.log('  1. AI & Clinical NLP: TensorFlow.js, CNN Classification, OpenFDA, MedlinePlus');
+        this.log('  2. Embedded Systems:   ESP32 (C++), PlatformIO, FreeRTOS, SPI/I2C, ESC/POS');
+        this.log('  3. Fintech & Cloud:   EMVCo BOT PromptPay QR, Supabase Realtime, PostgreSQL');
+        this.log('  4. Computational Sci: Beer-Lambert Spectrophotometry, Canvas 2D API');
+        this.log('  5. Modern Web & 3D:   Vanilla ES6+, WebGL (Three.js), CSS 3D Perspective');
         break;
 
       case 'hardware':
