@@ -9,12 +9,38 @@
     content="Official portfolio of Firman Awea (@muaxzinn) - Systems & Embedded Developer, Hardware Builder, and Health Tech Innovator from Narathiwat, Thailand.">
   <meta name="author" content="Firman Awea">
 
-  <!-- Open Graph Protocol -->
+  <!-- Favicons and App Icons (Pure Vector SVG + High-Res PNG) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+  <meta name="theme-color" content="#070b16">
+
+  <!-- Open Graph Protocol (Facebook, LINE, Discord, Slack, WhatsApp) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Firman Awea | Systems & Embedded Developer">
+  <meta property="og:site_name" content="Firman Awea (@muaxzinn)">
+  <meta property="og:title" content="Firman Awea | Systems & Embedded Developer · Health Tech Innovator">
   <meta property="og:description"
-    content="Bridging Systems Architecture, Embedded Hardware, and Artificial Intelligence to build impactful real-world solutions.">
-  <meta property="og:image" content="image1.png">
+    content="Logic. Hardware. Intelligence. Official portfolio of Firman Awea (@muaxzinn) — Systems Architecture, ESP32 Embedded IoT, Edge AI & Health Tech.">
+  <meta property="og:url" content="https://muaxzinn.github.io/muaxzinnport/">
+  <meta property="og:image" content="https://muaxzinn.github.io/muaxzinnport/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://muaxzinn.github.io/muaxzinnport/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Firman Awea Portfolio Open Graph Preview Card">
+  <meta property="og:locale" content="th_TH">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@muaxzinn">
+  <meta name="twitter:creator" content="@muaxzinn">
+  <meta name="twitter:title" content="Firman Awea | Systems & Embedded Developer · Health Tech Innovator">
+  <meta name="twitter:description"
+    content="Logic. Hardware. Intelligence. Official portfolio of Firman Awea (@muaxzinn) — Systems Architecture, ESP32 Microcontrollers, Edge AI & Medical IoT.">
+  <meta name="twitter:image" content="https://muaxzinn.github.io/muaxzinnport/assets/og-image.png">
 
   <!-- Google Fonts: Plus Jakarta Sans, Inter, Prompt, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,15 +151,243 @@
     </div>
   </dialog>
 
+  <!-- Social Share & Card Preview Modal (Facebook, LINE, X) -->
+  <dialog id="share-modal" class="m-auto rounded-3xl glass-panel text-slate-100 p-0 max-w-3xl w-full shadow-2xl border border-slate-700/80 overflow-hidden backdrop-blur-2xl">
+    <div class="p-5 sm:p-7 space-y-5">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500/20 to-teal-500/20 border border-sky-500/40 text-sky-400 flex items-center justify-center text-lg shadow-sm">
+            <i class="fas fa-share-nodes"></i>
+          </div>
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2">
+              หน้าจอตัวอย่างการ์ดแชร์โซเชียล
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">Open Graph 1200x630</span>
+            </h3>
+            <p class="text-xs text-slate-400">จำลองการแสดงผลรูปภาพและข้อมูลจริงเมื่อแชร์ลิงก์ไปยัง Facebook, LINE, X และแพลตฟอร์มต่าง ๆ</p>
+          </div>
+        </div>
+        <button onclick="window.socialPreviewModal?.close()" aria-label="Close Share Modal" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Platform Tab Selector -->
+      <div class="flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl bg-slate-900/90 border border-slate-800">
+        <button data-platform="facebook" class="share-tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all active bg-sky-500/20 text-sky-400 border border-sky-500/40">
+          <i class="fab fa-facebook text-[#1877f2] text-sm"></i>
+          <span>Facebook Feed</span>
+        </button>
+        <button data-platform="line" class="share-tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all text-slate-400 border border-transparent">
+          <i class="fab fa-line text-[#06c755] text-sm"></i>
+          <span>LINE Chat</span>
+        </button>
+        <button data-platform="twitter" class="share-tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all text-slate-400 border border-transparent">
+          <i class="fab fa-x-twitter text-white text-sm"></i>
+          <span>X (Twitter)</span>
+        </button>
+        <button data-platform="raw" class="share-tab-btn flex-1 py-2 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition-all text-slate-400 border border-transparent">
+          <i class="fas fa-file-code text-amber-400 text-sm"></i>
+          <span>SVG &amp; Assets</span>
+        </button>
+      </div>
+
+      <!-- Preview Panels -->
+      <div class="min-h-[380px] bg-slate-950/70 rounded-2xl border border-slate-800/80 p-4 sm:p-6 overflow-hidden">
+
+        <!-- 1. Facebook Feed Preview -->
+        <div class="platform-preview-pane space-y-3" data-pane="facebook">
+          <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider flex items-center justify-between">
+            <span><i class="fab fa-facebook text-[#1877f2] mr-1.5"></i> Facebook Post Link Card Simulation</span>
+            <span class="text-emerald-400"><i class="fas fa-check-circle"></i> 100% Meta Conformance</span>
+          </div>
+
+          <div class="max-w-xl mx-auto rounded-xl bg-[#242526] border border-[#393a3b] shadow-2xl overflow-hidden font-sans text-left">
+            <!-- Facebook Post Header -->
+            <div class="p-3.5 flex items-center gap-2.5">
+              <img src="assets/favicon.svg" alt="Avatar" class="w-10 h-10 rounded-full border border-sky-500/40">
+              <div>
+                <div class="text-xs font-bold text-white leading-tight">Firman Awea</div>
+                <div class="text-[11px] text-[#b0b3b8] flex items-center gap-1">
+                  <span>เมื่อสักครู่</span> &middot; <i class="fas fa-globe-americas text-[10px]"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post Caption -->
+            <p class="px-3.5 pb-2.5 text-xs text-[#e4e6eb] leading-relaxed">
+              สถาปัตยกรรมระบบจริง, สมองกลฝังตัว ESP32, Edge AI และ AI ทางการแพทย์ 🚀 เยี่ยมชมผลงานทั้งหมดได้ที่เว็บไซต์อย่างเป็นทางการ
+            </p>
+
+            <!-- Facebook Link Card Body -->
+            <div class="border-t border-[#393a3b] bg-[#3a3b3c]/40 hover:bg-[#3a3b3c]/60 transition-colors cursor-pointer" onclick="window.socialPreviewModal?.copyShareLink()">
+              <div class="relative w-full aspect-[1.91/1] overflow-hidden bg-slate-900">
+                <img src="assets/og-image.png" alt="Open Graph Preview" class="w-full h-full object-cover">
+              </div>
+              <div class="p-3 bg-[#242526]">
+                <div class="text-[10px] font-mono text-[#b0b3b8] uppercase tracking-wider">MUAXZINN.GITHUB.IO/MUAXZINNPORT</div>
+                <div class="text-sm font-bold text-[#e4e6eb] mt-0.5 line-clamp-1">Firman Awea | Systems &amp; Embedded Developer · Health Tech Innovator</div>
+                <div class="text-xs text-[#b0b3b8] mt-1 line-clamp-2">Logic. Hardware. Intelligence. Official portfolio of Firman Awea (@muaxzinn) — Systems Architecture, ESP32, Edge AI &amp; Health Tech.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. LINE Chat Bubble Preview -->
+        <div class="platform-preview-pane hidden space-y-3" data-pane="line">
+          <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider flex items-center justify-between">
+            <span><i class="fab fa-line text-[#06c755] mr-1.5"></i> LINE Chat Rich Link Bubble Simulation</span>
+            <span class="text-[#06c755]"><i class="fas fa-check-circle"></i> LINE Social Plugin Ready</span>
+          </div>
+
+          <div class="max-w-md mx-auto p-4 rounded-2xl bg-[#1b222c] border border-slate-700/60 shadow-2xl">
+            <div class="flex items-start gap-2.5">
+              <img src="assets/favicon.svg" alt="LINE Sender" class="w-9 h-9 rounded-full border border-emerald-500/40 flex-shrink-0 mt-1">
+              <div class="space-y-1">
+                <div class="text-[11px] text-slate-400 font-semibold">Firman Awea</div>
+                <!-- LINE Rich Bubble Card -->
+                <div class="rounded-2xl overflow-hidden bg-[#263140] border border-slate-600/50 shadow-md max-w-sm">
+                  <div class="relative aspect-[1.91/1] bg-slate-900">
+                    <img src="assets/og-image.png" alt="LINE Preview Image" class="w-full h-full object-cover">
+                  </div>
+                  <div class="p-3.5 space-y-1.5 text-left">
+                    <div class="text-xs font-bold text-white line-clamp-1">Firman Awea | Systems &amp; Embedded Developer</div>
+                    <div class="text-[11px] text-slate-300 leading-relaxed line-clamp-2">Logic. Hardware. Intelligence. Systems Architecture, ESP32 Microcontrollers, Edge AI &amp; Medical IoT.</div>
+                    <div class="text-[10px] text-emerald-400 font-mono pt-1">muaxzinn.github.io</div>
+                  </div>
+                  <a href="https://muaxzinn.github.io/muaxzinnport/" target="_blank" rel="noopener noreferrer" class="block py-2 text-center text-xs font-bold text-white bg-[#06c755] hover:bg-[#05b34c] transition-colors">
+                    เปิดเว็บไซต์
+                  </a>
+                </div>
+                <div class="text-[10px] text-slate-500 text-right pr-1">อ่านแล้ว 19:25</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Twitter / X Card Preview -->
+        <div class="platform-preview-pane hidden space-y-3" data-pane="twitter">
+          <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider flex items-center justify-between">
+            <span><i class="fab fa-x-twitter text-white mr-1.5"></i> X Summary Large Image Card</span>
+            <span class="text-sky-400"><i class="fas fa-check-circle"></i> Twitter Cards Validated</span>
+          </div>
+
+          <div class="max-w-xl mx-auto rounded-2xl bg-black border border-slate-800 p-4 shadow-2xl font-sans text-left">
+            <div class="flex items-start gap-3">
+              <img src="assets/favicon.svg" alt="X Avatar" class="w-10 h-10 rounded-full border border-slate-800">
+              <div class="flex-1">
+                <div class="flex items-center gap-1.5 text-xs">
+                  <span class="font-bold text-white">Firman Awea</span>
+                  <i class="fas fa-circle-check text-sky-400 text-[11px]"></i>
+                  <span class="text-slate-500 font-mono">@muaxzinn &middot; ตอนนี้</span>
+                </div>
+                <p class="text-xs text-slate-200 mt-1 mb-3">
+                  Logic. Hardware. Intelligence. สำรวจพอร์ตโฟลิโอวิศวกรรมสถาปัตยกรรมระบบ ไมโครคอนโทรลเลอร์ ESP32, Edge AI และ Medical Health Tech ⚡️
+                </p>
+
+                <!-- X Large Card -->
+                <div class="rounded-2xl overflow-hidden border border-slate-800 relative bg-slate-950">
+                  <div class="aspect-[1.91/1] overflow-hidden">
+                    <img src="assets/og-image.png" alt="X Card Banner" class="w-full h-full object-cover">
+                  </div>
+                  <div class="p-3 bg-black/90">
+                    <div class="text-[10px] text-slate-500 font-mono">muaxzinn.github.io</div>
+                    <div class="text-xs font-bold text-white mt-0.5">Firman Awea | Systems &amp; Embedded Developer</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5 line-clamp-1">Official portfolio of Firman Awea (@muaxzinn) — Edge AI, ESP32, Medical IoT.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. SVG & Raw Assets Panel -->
+        <div class="platform-preview-pane hidden space-y-4" data-pane="raw">
+          <div class="text-[11px] font-mono text-slate-500 uppercase tracking-wider flex items-center justify-between">
+            <span><i class="fas fa-vector-square text-amber-400 mr-1.5"></i> Pure SVG Code &amp; Raster Assets</span>
+            <span class="text-amber-400"><i class="fas fa-code"></i> Hand-Crafted Vector Code</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+            <!-- Vector Icon -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Vector Brand Favicon &amp; Icon</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">SVG / PNG</span>
+              </div>
+              <div class="flex items-center gap-4 py-2">
+                <img src="assets/favicon.svg" alt="Brand Icon SVG" class="w-16 h-16 rounded-2xl border border-sky-500/40 shadow-lg">
+                <div class="text-[11px] text-slate-400 font-mono space-y-1">
+                  <div>File: <span class="text-white">assets/favicon.svg</span></div>
+                  <div>Raster: <span class="text-emerald-400">icon-512.png (512x512)</span></div>
+                  <div>Format: <span class="text-sky-400">Scalable Vector Graphics</span></div>
+                </div>
+              </div>
+              <div class="flex gap-2 pt-1">
+                <a href="assets/favicon.svg" download class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-sky-500 hover:text-white text-xs font-semibold text-slate-300 text-center transition-colors">
+                  <i class="fas fa-download mr-1"></i> ดาวน์โหลด SVG
+                </a>
+                <a href="assets/icon-512.png" download class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-white text-xs font-semibold text-slate-300 text-center transition-colors">
+                  <i class="fas fa-file-image mr-1"></i> ดาวน์โหลด PNG
+                </a>
+              </div>
+            </div>
+
+            <!-- Open Graph Banner -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Open Graph Social Banner</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">1200 x 630</span>
+              </div>
+              <div class="aspect-[1.91/1] rounded-lg overflow-hidden border border-slate-700 bg-slate-950">
+                <img src="assets/og-image.png" alt="OG Image Banner" class="w-full h-full object-cover">
+              </div>
+              <div class="flex gap-2 pt-1">
+                <a href="assets/og-image.svg" download class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-sky-500 hover:text-white text-xs font-semibold text-slate-300 text-center transition-colors">
+                  <i class="fas fa-download mr-1"></i> SVG Banner (1200x630)
+                </a>
+                <a href="assets/og-image.png" download class="flex-1 py-1.5 rounded-lg bg-slate-800 hover:bg-emerald-500 hover:text-white text-xs font-semibold text-slate-300 text-center transition-colors">
+                  <i class="fas fa-file-image mr-1"></i> PNG Banner (1200x630)
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <button onclick="window.socialPreviewModal?.copyShareLink()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors flex items-center justify-center gap-2">
+          <i class="fas fa-copy text-sky-400"></i> คัดลอกลิงก์แชร์
+        </button>
+
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+          <button onclick="window.socialPreviewModal?.shareToFacebook()" class="p-2.5 px-3 rounded-xl bg-[#1877f2]/20 hover:bg-[#1877f2] text-[#1877f2] hover:text-white text-xs font-semibold transition-all border border-[#1877f2]/40 flex items-center gap-1.5">
+            <i class="fab fa-facebook"></i> <span class="hidden sm:inline">แชร์ Facebook</span>
+          </button>
+          <button onclick="window.socialPreviewModal?.shareToLine()" class="p-2.5 px-3 rounded-xl bg-[#06c755]/20 hover:bg-[#06c755] text-[#06c755] hover:text-white text-xs font-semibold transition-all border border-[#06c755]/40 flex items-center gap-1.5">
+            <i class="fab fa-line"></i> <span class="hidden sm:inline">แชร์ LINE</span>
+          </button>
+          <button onclick="window.socialPreviewModal?.shareToTwitter()" class="p-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-all border border-slate-700 flex items-center gap-1.5">
+            <i class="fab fa-x-twitter"></i> <span class="hidden sm:inline">แชร์ X</span>
+          </button>
+          <button onclick="window.socialPreviewModal?.close()" class="px-3.5 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white text-xs font-medium transition-colors">
+            ปิด
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
   <!-- Sticky Glass Navigation Bar -->
   <nav class="fixed top-0 left-0 w-full z-40 transition-all duration-300 glass-panel border-b border-white/5" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 items-center">
         <!-- Logo / Name -->
         <a href="#home" class="flex items-center gap-3 group">
-          <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-teal-500 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-sky-500/25 group-hover:scale-105 transition-transform duration-300">
-            <span class="relative z-10">FA</span>
-          </div>
+          <img src="assets/favicon.svg" alt="Firman Awea Icon" class="w-10 h-10 rounded-xl shadow-lg shadow-sky-500/25 group-hover:scale-105 transition-transform duration-300">
           <div class="flex flex-col">
             <span class="font-bold text-base tracking-tight text-white group-hover:text-sky-400 transition-colors">Firman Awea</span>
             <span class="text-[10px] text-slate-400 font-mono tracking-wider uppercase flex items-center gap-1.5">
@@ -151,6 +405,12 @@
           <a href="#terminal" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Terminal</a>
           <a href="#showcase" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Showcase</a>
           <a href="#awards" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Awards</a>
+
+          <!-- Social Share Preview Trigger -->
+          <button data-open-share-modal title="พรีวิวการ์ดแชร์ Facebook &amp; LINE" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-slate-300 hover:text-sky-400 hover:bg-slate-800/60 transition-all text-xs border border-sky-500/30 bg-sky-500/10">
+            <i class="fas fa-share-nodes text-xs text-sky-400"></i>
+            <span class="hidden xl:inline font-medium">Share Card</span>
+          </button>
 
           <div class="h-4 w-[1px] bg-slate-800 mx-2"></div>
 
@@ -180,6 +440,9 @@
 
         <!-- Mobile Controls -->
         <div class="flex items-center gap-2 lg:hidden">
+          <button data-open-share-modal aria-label="Social Share Preview" class="p-2 text-slate-400 hover:text-sky-400" title="พรีวิวการ์ดแชร์">
+            <i class="fas fa-share-nodes text-sm"></i>
+          </button>
           <button id="search-trigger-mobile" aria-label="Quick Search" class="p-2 text-slate-400 hover:text-white">
             <i class="fas fa-search text-sm"></i>
           </button>
@@ -207,6 +470,9 @@
       <a href="#terminal" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Terminal</a>
       <a href="#showcase" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Showcase</a>
       <a href="#awards" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Awards</a>
+      <button data-open-share-modal class="w-full text-left py-2 text-sm font-medium text-sky-400 hover:text-sky-300 flex items-center gap-2">
+        <i class="fas fa-share-nodes"></i> ดูหน้าจอตัวอย่างการ์ดแชร์ (Facebook / LINE)
+      </button>
       <a href="#contact" class="block w-full text-center py-3 mt-4 rounded-xl bg-sky-500 text-white font-bold text-sm">Contact Firman</a>
     </div>
   </nav>
@@ -313,6 +579,9 @@
 
               <!-- Quick Contact Actions -->
               <div class="flex items-center gap-1.5">
+                <button data-open-share-modal class="p-2 rounded-xl bg-sky-500/10 hover:bg-sky-500 text-sky-400 hover:text-white text-xs transition-colors border border-sky-500/30" title="ดูหน้าจอตัวอย่างการแชร์ Facebook &amp; LINE">
+                  <i class="fas fa-share-nodes"></i>
+                </button>
                 <button onclick="copyToClipboard('firman.awea@gmail.com', 'คัดลอกอีเมลแล้ว!')" class="p-2 rounded-xl bg-slate-800/80 hover:bg-sky-500 text-slate-300 hover:text-white text-xs transition-colors border border-slate-700/50" title="Copy Email">
                   <i class="fas fa-envelope"></i>
                 </button>
@@ -964,8 +1233,13 @@
   <!-- Footer -->
   <footer class="py-6 bg-slate-950 border-t border-slate-900 text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>&copy; 2026 Firman Awea (@muaxzinn). Crafted with Pure Modular Vanilla Web & Modern CSS.</p>
-      <a href="#home" class="hover:text-sky-400 transition-colors">Top of page <i class="fas fa-arrow-up ml-1"></i></a>
+      <p>&copy; 2026 Firman Awea (@muaxzinn). Crafted with Pure Modular Vanilla Web &amp; Modern CSS.</p>
+      <div class="flex items-center gap-4">
+        <button data-open-share-modal class="hover:text-sky-400 transition-colors flex items-center gap-1.5 text-slate-400 hover:text-white">
+          <i class="fas fa-share-nodes text-xs text-sky-400"></i> ดูการ์ดแชร์โซเชียล
+        </button>
+        <a href="#home" class="hover:text-sky-400 transition-colors">Top of page <i class="fas fa-arrow-up ml-1"></i></a>
+      </div>
     </div>
   </footer>
 
@@ -976,6 +1250,7 @@
   <script src="js/projects-data.js"></script>
   <script src="js/project-filter.js"></script>
   <script src="js/project-modal.js"></script>
+  <script src="js/social-preview.js"></script>
   <script src="js/terminal.js"></script>
   <script src="js/command-palette.js"></script>
   <script src="js/theme.js"></script>

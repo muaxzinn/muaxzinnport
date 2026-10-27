@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.projectShowcase = new window.ProjectShowcaseManager();
   window.aiTerminal = new window.AIAgentTerminal();
   window.cmdPalette = new window.CommandPalette();
+  if (window.SocialPreviewModalManager) {
+    window.socialPreviewModal = new window.SocialPreviewModalManager();
+  }
 
   // 3. Initialize 3D Perspective Card Tilt Engine
   if (window.CardTilt3DEngine) {
