@@ -69,10 +69,32 @@ class ProjectModalManager {
       ).join('');
     }
 
-    // Link
-    if (this.linkEl) {
-      this.linkEl.href = project.liveUrl || project.githubUrl || '#';
-      this.linkEl.textContent = project.liveUrl && project.liveUrl !== '#' ? 'เปิดระบบใช้งานจริง' : 'ดู Repository บน GitHub';
+    // Action Links inside Modal (Render live web and repo buttons only if they actually exist)
+    const actionsEl = document.getElementById('modal-actions');
+    if (actionsEl) {
+      let actionBtns = '';
+      if (project.liveUrl) {
+        actionBtns += `
+          <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white text-xs font-bold transition-all shadow-md flex items-center gap-2">
+            เปิดระบบใช้งานจริง <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        `;
+      }
+      if (project.githubUrl) {
+        actionBtns += `
+          <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold transition-all border border-slate-700/80 flex items-center gap-2">
+            <i class="fab fa-github"></i> Repository
+          </a>
+        `;
+      }
+      if (!project.liveUrl && !project.githubUrl) {
+        actionBtns += `
+          <span class="px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-mono font-medium flex items-center gap-1.5">
+            <i class="fas fa-screwdriver-wrench"></i> ฮาร์ดแวร์ต้นแบบ (Hardware Prototype)
+          </span>
+        `;
+      }
+      actionsEl.innerHTML = actionBtns;
     }
 
     this.dialog.showModal();

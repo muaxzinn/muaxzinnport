@@ -72,7 +72,10 @@
   </script>
 </head>
 
-<body class="selection:bg-sky-500 selection:text-white">
+<body class="selection:bg-sky-500 selection:text-white relative bg-[#070b16]">
+
+  <!-- Ambient Full-Screen 3D Cybernetic Scene Canvas -->
+  <canvas id="bg-3d-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
 
   <!-- Reading Progress Bar -->
   <div id="reading-progress"></div>
@@ -144,9 +147,7 @@
         <button onclick="window.projectModal.close()" class="px-4 py-2 rounded-xl text-slate-400 hover:text-white text-xs font-semibold">
           ปิดหน้าต่าง
         </button>
-        <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white text-xs font-bold transition-all shadow-md flex items-center gap-2">
-          เปิดระบบใช้งานจริง <i class="fas fa-arrow-up-right-from-square"></i>
-        </a>
+        <div id="modal-actions" class="flex items-center gap-2"></div>
       </div>
     </div>
   </dialog>
@@ -1250,6 +1251,7 @@
   <script src="js/projects-data.js"></script>
   <script src="js/project-filter.js"></script>
   <script src="js/project-modal.js"></script>
+  <script src="js/bg-3d-scene.js"></script>
   <script src="js/social-preview.js"></script>
   <script src="js/terminal.js"></script>
   <script src="js/command-palette.js"></script>

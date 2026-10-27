@@ -2,7 +2,7 @@
  * ====================================================================
  * Firman Awea Portfolio - Project Catalog & System Registry
  * 25+ Curated Engineering Projects | Micro-Roadmaps | Concise Specs
- * Zero Personal / Romance Projects (Strictly Filtered)
+ * Verified Live Deployments & Authentic GitHub Repositories
  * ====================================================================
  */
 
@@ -58,8 +58,8 @@ const PROJECTS_DATA = [
     architecture: 'เฟิร์มแวร์ C++ (PlatformIO) จัดการสื่อสารกับจอสัมผัสผ่าน SPI (TFT_eSPI / XPT2046) ซิงค์ข้อมูลผ่าน Supabase Realtime WebSockets พร้อมเอ็นจินสร้างเพย์โหลดคิวอาร์โค้ดตามมาตรฐาน EMVCo / BOT Checksum CRC16',
     award: 'Embedded Fintech Ecosystem',
     techStack: ['ESP32', 'PlatformIO', 'C++', 'Supabase Realtime', 'EMVCo QR'],
-    liveUrl: 'https://github.com/muaxzinn',
-    githubUrl: 'https://github.com/muaxzinn',
+    liveUrl: null,
+    githubUrl: null,
     icon: 'fa-cash-register',
     accentColor: 'teal',
     roadmap: [
@@ -96,8 +96,8 @@ const PROJECTS_DATA = [
     architecture: 'เฟิร์มแวร์ ESP32 จัดการอินเทอร์รัปต์ของโมดูล RFID RC522 สื่อสารกับจอ OLED ผ่าน I2C และส่งข้อมูลผ่าน HTTPS REST API / WebSocket Channels ไปยัง Supabase PostgreSQL',
     award: 'Serverless IoT Library System',
     techStack: ['ESP32', 'RFID RC522', 'OLED I2C', 'Supabase Realtime', 'Web Dashboard'],
-    liveUrl: 'https://github.com/muaxzinn',
-    githubUrl: 'https://github.com/muaxzinn',
+    liveUrl: null,
+    githubUrl: 'https://github.com/muaxzinn/hongsamud',
     icon: 'fa-book-bookmark',
     accentColor: 'violet',
     roadmap: [
@@ -116,8 +116,8 @@ const PROJECTS_DATA = [
     architecture: 'ไมโครคอนโทรลเลอร์ประมวลผลสัญญาณสะท้อนของคลื่นอัลตราโซนิก (HC-SR04) แบบเรียลไทม์ แปลงระยะทางเป็นระดับเสียงเตือนผ่าน DFPlayer Mini พร้อมโมดูล GPS NEO-6M ถอดรหัส NMEA Sentences',
     award: 'เหรียญทองแดงระดับชาติ & เหรียญทองระดับภาค - การประกวดผลงานสิ่งประดิษฐ์และนวัตกรรม',
     techStack: ['Arduino', 'ESP32', 'C/C++', 'Ultrasonic Sensors', 'GPS Telemetry'],
-    liveUrl: 'https://github.com/muaxzinn',
-    githubUrl: 'https://github.com/muaxzinn',
+    liveUrl: null,
+    githubUrl: null,
     icon: 'fa-glasses',
     accentColor: 'amber',
     roadmap: null
@@ -136,7 +136,7 @@ const PROJECTS_DATA = [
     category: 'ai-medical',
     shortDesc: 'ระบบ AI ตรวจคัดกรองเบาหวานขึ้นจอประสาทตาจากภาพถ่าย Fundus',
     techStack: ['Deep Learning', 'Ophthalmology', 'Client AI'],
-    liveUrl: 'https://github.com/muaxzinn/DiabEye.ai',
+    liveUrl: null,
     githubUrl: 'https://github.com/muaxzinn/DiabEye.ai',
     icon: 'fa-eye'
   },
@@ -186,8 +186,8 @@ const PROJECTS_DATA = [
     category: 'embedded-fintech',
     shortDesc: 'ต้นแบบเครื่องชำระเงินจอสัมผัส ESP32 2.8" สร้าง QR PromptPay ผ่าน Stripe',
     techStack: ['ESP32-2432S028R', 'Stripe API', 'PlatformIO'],
-    liveUrl: 'https://github.com/muaxzinn',
-    githubUrl: 'https://github.com/muaxzinn',
+    liveUrl: null,
+    githubUrl: null,
     icon: 'fa-credit-card'
   },
 
@@ -200,20 +200,20 @@ const PROJECTS_DATA = [
     category: 'edtech-exams',
     shortDesc: 'เว็บทดสอบมิติสัมพันธ์และการหมุนวัตถุ 3 มิติในจินตนาการด้วย React & Three.js',
     techStack: ['React', 'Vite', 'Three.js', 'Spatial Math'],
-    liveUrl: 'https://github.com/muaxzinn',
-    githubUrl: 'https://github.com/muaxzinn',
+    liveUrl: null,
+    githubUrl: null,
     icon: 'fa-cubes'
   },
   {
     id: 'polcexam',
     isFlagship: false,
-    title: 'แอปติวสอบ นสต. 18 (Dolphin/Lion King)',
+    title: 'แอปติวสอบ นสต. 18 (PolicePrep)',
     subtitle: 'PWA Cadet Exam Prep & Fitness Engine',
     category: 'edtech-exams',
     shortDesc: 'แอป PWA เตรียมสอบนายสิบตำรวจ คลังข้อสอบ ตารางฝึกสมรรถภาพ และใช้งานออฟไลน์ได้',
     techStack: ['PWA', 'Offline Storage', 'Quiz Engine', 'Fitness Tracker'],
-    liveUrl: 'https://github.com/muaxzinn/polcexam',
-    githubUrl: 'https://github.com/muaxzinn/polcexam',
+    liveUrl: null,
+    githubUrl: 'https://github.com/muaxzinn/PolicePrep',
     icon: 'fa-shield-halved'
   },
   {
@@ -224,8 +224,8 @@ const PROJECTS_DATA = [
     category: 'edtech-exams',
     shortDesc: 'ระบบจำลองการสอบวัดสมรรถนะการคิดอย่างมีเหตุผล (TGAT2) พร้อมเฉลยและการจับเวลา',
     techStack: ['React', 'Vite', 'Oxlint', 'Exam Logic'],
-    liveUrl: 'https://github.com/muaxzinn/TGAT2',
-    githubUrl: 'https://github.com/muaxzinn/TGAT2',
+    liveUrl: null,
+    githubUrl: null,
     icon: 'fa-pen-to-square'
   },
   {
@@ -236,8 +236,8 @@ const PROJECTS_DATA = [
     category: 'edtech-exams',
     shortDesc: 'แพ็กเกจข้อสอบคณิตศาสตร์โอลิมปิกวิชาการและ A-Level สำหรับทบทวนความพร้อม',
     techStack: ['TypeScript', 'MathJax', 'Study Packs'],
-    liveUrl: 'https://github.com/muaxzinn',
-    githubUrl: 'https://github.com/muaxzinn',
+    liveUrl: null,
+    githubUrl: null,
     icon: 'fa-square-root-variable'
   },
   {
@@ -248,7 +248,7 @@ const PROJECTS_DATA = [
     category: 'edtech-exams',
     shortDesc: 'เครื่องมือประเมินทักษะและกรอบความคิดทางจิตวิทยาและการเรียนรู้',
     techStack: ['Psychology Form', 'Scoring Engine', 'Interactive UI'],
-    liveUrl: 'https://github.com/muaxzinn/Psym6',
+    liveUrl: null,
     githubUrl: 'https://github.com/muaxzinn/Psym6',
     icon: 'fa-user-gear'
   },
@@ -274,8 +274,8 @@ const PROJECTS_DATA = [
     category: 'web-utilities',
     shortDesc: 'ศูนย์รวมคีย์ลัดสำหรับ Developer และระบบ Productivity สไตล์มินิมอลด้วย Next.js',
     techStack: ['Next.js', 'React', 'Tailwind', 'Productivity'],
-    liveUrl: 'https://github.com/muaxzinn',
-    githubUrl: 'https://github.com/muaxzinn',
+    liveUrl: null,
+    githubUrl: null,
     icon: 'fa-keyboard'
   },
   {
@@ -286,7 +286,7 @@ const PROJECTS_DATA = [
     category: 'web-utilities',
     shortDesc: 'เว็บแอปคำนวณสิทธิ์เงินอุดหนุนภาครัฐ 60/40 พร้อมระบบคำนวณส่วนต่างและสรุปยอด',
     techStack: ['Mobile-First', 'Calculation Logic', 'Local Database'],
-    liveUrl: 'https://github.com/muaxzinn/ThaiChuayThai-ChuayCalc',
+    liveUrl: null,
     githubUrl: 'https://github.com/muaxzinn/ThaiChuayThai-ChuayCalc',
     icon: 'fa-calculator'
   },

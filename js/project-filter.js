@@ -89,19 +89,27 @@ class ProjectShowcaseManager {
           </div>
         </div>
 
-        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between gap-2 tilt-layer-front">
+        <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 tilt-layer-front">
           <button onclick="window.projectModal.open('${project.id}')" class="px-3.5 py-1.5 rounded-lg glass-panel hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm">
             <i class="fas fa-layer-group text-sky-400"></i> สถาปัตยกรรมระบบ
           </button>
-          ${project.liveUrl && project.liveUrl !== '#' ? `
-            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-lg bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-md shadow-sky-500/20">
-              เปิดระบบ <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
-            </a>
-          ` : `
-            <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm">
-              <i class="fab fa-github"></i> Repository
-            </a>
-          `}
+          <div class="flex items-center gap-2">
+            ${project.liveUrl ? `
+              <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-4 py-1.5 rounded-lg bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-md shadow-sky-500/20">
+                เปิดระบบ <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
+              </a>
+            ` : ''}
+            ${project.githubUrl ? `
+              <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm border border-slate-700/60">
+                <i class="fab fa-github"></i> Repository
+              </a>
+            ` : ''}
+            ${!project.liveUrl && !project.githubUrl ? `
+              <span class="px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/25 text-amber-400 text-[11px] font-mono flex items-center gap-1.5">
+                <i class="fas fa-microchip"></i> Hardware Prototype
+              </span>
+            ` : ''}
+          </div>
         </div>
       `;
 
@@ -157,9 +165,21 @@ class ProjectShowcaseManager {
             <div class="w-9 h-9 rounded-xl bg-slate-800/80 text-sky-400 flex items-center justify-center text-base">
               <i class="fas ${project.icon || 'fa-code'}"></i>
             </div>
-            <a href="${project.liveUrl || project.githubUrl}" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-lg bg-slate-800/80 hover:bg-sky-500 text-slate-400 hover:text-white transition-colors" title="Launch Demo / Repo">
-              <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-            </a>
+            <div class="flex items-center gap-1.5">
+              ${project.liveUrl ? `
+                <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-sky-500/15 hover:bg-sky-500 text-sky-300 hover:text-white transition-all text-xs flex items-center gap-1 font-semibold border border-sky-500/25" title="เปิดระบบใช้งานจริง">
+                  <span>เปิดเว็บ</span> <i class="fas fa-arrow-up-right-from-square text-[9px]"></i>
+                </a>
+              ` : ''}
+              ${project.githubUrl ? `
+                <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="p-1.5 px-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors border border-slate-700/60" title="ดู Repository บน GitHub">
+                  <i class="fab fa-github text-xs"></i>
+                </a>
+              ` : ''}
+              ${!project.liveUrl && !project.githubUrl ? `
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800/80 text-slate-400 border border-slate-700/50">กำลังพัฒนา</span>
+              ` : ''}
+            </div>
           </div>
 
           <h4 class="font-bold text-base text-white tracking-tight mb-1 truncate">${project.title}</h4>

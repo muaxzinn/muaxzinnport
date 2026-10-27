@@ -24,7 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.socialPreviewModal = new window.SocialPreviewModalManager();
   }
 
-  // 3. Initialize 3D Perspective Card Tilt Engine
+  // 3. Initialize Ambient 3D Cybernetic Background Scene
+  if (window.Background3DScene) {
+    window.bg3DScene = new window.Background3DScene('bg-3d-canvas');
+  }
+
+  // 4. Initialize 3D Perspective Card Tilt Engine
   if (window.CardTilt3DEngine) {
     window.cardTiltEngine = new window.CardTilt3DEngine('.tilt-3d');
   }
