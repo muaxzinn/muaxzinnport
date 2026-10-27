@@ -29,14 +29,10 @@
   <!-- Font Awesome 6.5 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Three.js (r128) CDN for 3D Holographic Visuals -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
   <!-- Modular CSS Architecture -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/3d-viewport.css">
   <link rel="stylesheet" href="css/terminal.css">
 
   <!-- Anti-Flash Theme Init -->
@@ -215,7 +211,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Three.js 3D Viewport & Bio Card -->
+  <!-- Hero Section with Developer Profile Bento & Stats -->
   <header id="home" class="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
     <!-- Ambient Blur Spheres -->
     <div class="absolute -top-32 left-1/4 w-96 h-96 bg-sky-500/15 rounded-full blur-[140px] pointer-events-none animate-glow-pulse"></div>
@@ -286,63 +282,125 @@
           </div>
         </div>
 
-        <!-- Right Column: Interactive Three.js 3D Holographic Core Viewport -->
-        <div class="lg:col-span-5 flex flex-col gap-4">
-          <div class="three-container" id="three-viewport">
-            <canvas id="three-canvas"></canvas>
+        <!-- Right Column: Integrated Developer Profile & Live Architecture Showcase -->
+        <div class="lg:col-span-5 flex flex-col gap-4 reveal delay-100">
 
-            <!-- Top HUD Info -->
-            <div class="three-hud-top">
-              <span class="three-hud-badge">
-                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
-                Interactive 3D Core
-              </span>
-              <span class="three-click-hint hidden sm:inline">Drag Orbit &middot; Scroll Zoom &middot; Click Shockwave</span>
-            </div>
+          <!-- Main Profile Showcase Card -->
+          <div class="glow-card tilt-3d p-6 relative overflow-hidden" data-tilt-max="7">
+            <!-- Subtle background accent blur -->
+            <div class="absolute -right-10 -top-10 w-44 h-44 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- Mode Switcher Buttons & Controls -->
-            <div class="three-hud-bottom">
-              <button class="three-mode-btn active" data-mode="ai-agent" title="Switch to Neural Core Hologram">
-                <i class="fas fa-brain text-sky-400"></i> Neural Core
-              </button>
-              <button class="three-mode-btn" data-mode="dna-helix" title="Switch to Medical AI DNA Double Helix">
-                <i class="fas fa-dna text-teal-400"></i> Medical DNA
-              </button>
-              <button class="three-mode-btn" data-mode="iot-sphere" title="Switch to IoT Sensor Telemetry Globe">
-                <i class="fas fa-satellite text-amber-400"></i> IoT Sphere
-              </button>
-              <button class="three-mode-btn" data-mode="synapse-mesh" title="Switch to Neural Synapse Network">
-                <i class="fas fa-network-wired text-purple-400"></i> Synapses
-              </button>
-              <button id="three-wireframe-toggle" class="three-mode-btn" title="Toggle 3D Wireframe / Solid">
-                <i class="fas fa-cube text-emerald-400"></i> Wireframe
-              </button>
-            </div>
-          </div>
-
-          <!-- Profile Snapshot Card with Dynamic Age & 3D Tilt -->
-          <div class="glow-card tilt-3d p-4 flex items-center justify-between gap-4" data-tilt-max="10">
-            <div class="flex items-center gap-3">
-              <div class="tilt-layer-deep w-12 h-12 rounded-xl overflow-hidden border border-slate-700 flex-shrink-0 bg-slate-900 shadow-md">
-                <img src="image1.png" alt="Firman Awea" class="w-full h-full object-cover object-top">
+            <div class="flex items-start justify-between gap-4 mb-5">
+              <div class="flex items-center gap-4">
+                <div class="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-sky-500/40 shadow-lg shadow-sky-500/15 flex-shrink-0 bg-slate-900">
+                  <img src="image1.png" alt="Firman Awea" class="w-full h-full object-cover object-top">
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="font-bold text-white text-lg">Firman Awea</h3>
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Active
+                    </span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-0.5">
+                    @muaxzinn &middot; <span class="dynamic-age-val font-mono font-bold text-sky-400">18</span> Years Old
+                  </p>
+                  <p class="text-[11px] text-slate-500 font-mono mt-0.5">
+                    <i class="fas fa-location-dot text-rose-400 mr-1"></i> Narathiwat, Thailand
+                  </p>
+                </div>
               </div>
-              <div class="tilt-layer-front">
-                <h4 class="font-bold text-white text-sm">Firman Awea</h4>
-                <p class="text-xs text-slate-400">
-                  <span class="dynamic-age-val font-mono font-bold text-sky-400">18</span> Years Old &middot; Narathiwat, TH
-                </p>
+
+              <!-- Quick Contact Actions -->
+              <div class="flex items-center gap-1.5">
+                <button onclick="copyToClipboard('firman.awea@gmail.com', 'คัดลอกอีเมลแล้ว!')" class="p-2 rounded-xl bg-slate-800/80 hover:bg-sky-500 text-slate-300 hover:text-white text-xs transition-colors border border-slate-700/50" title="Copy Email">
+                  <i class="fas fa-envelope"></i>
+                </button>
+                <button onclick="copyToClipboard('091-725-7551', 'คัดลอกเบอร์โทรแล้ว!')" class="p-2 rounded-xl bg-slate-800/80 hover:bg-sky-500 text-slate-300 hover:text-white text-xs transition-colors border border-slate-700/50" title="Copy Phone">
+                  <i class="fas fa-phone"></i>
+                </button>
+                <a href="https://github.com/muaxzinn" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-xs transition-colors border border-slate-700/50" title="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
               </div>
             </div>
 
-            <div class="flex items-center gap-2 tilt-layer-front">
-              <button onclick="copyToClipboard('firman.awea@gmail.com', 'คัดลอกอีเมลแล้ว!')" class="p-2 rounded-lg bg-slate-800 hover:bg-sky-500 text-slate-300 hover:text-white text-xs transition-colors" title="Copy Email">
-                <i class="fas fa-envelope"></i>
-              </button>
-              <button onclick="copyToClipboard('091-725-7551', 'คัดลอกเบอร์โทรแล้ว!')" class="p-2 rounded-lg bg-slate-800 hover:bg-sky-500 text-slate-300 hover:text-white text-xs transition-colors" title="Copy Phone">
-                <i class="fas fa-phone"></i>
-              </button>
+            <!-- Focus Domains Badges -->
+            <div class="grid grid-cols-2 gap-2 mb-5">
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-sky-400 font-semibold flex items-center gap-1.5">
+                  <i class="fas fa-brain"></i> Edge AI & Vision
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Client-Side Deep Learning</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-teal-400 font-semibold flex items-center gap-1.5">
+                  <i class="fas fa-microchip"></i> Embedded C++
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">ESP32, SPI, I2C & Sensors</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
+                  <i class="fas fa-cash-register"></i> Smart Fintech
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">BOT EMVCo PromptPay POS</div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+                <div class="text-[11px] font-mono text-violet-400 font-semibold flex items-center gap-1.5">
+                  <i class="fas fa-cloud"></i> Realtime BaaS
+                </div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Supabase & WebSocket Sync</div>
+              </div>
             </div>
+
+            <!-- Live Developer Status Feed -->
+            <div class="rounded-xl bg-slate-950/80 border border-slate-800/80 p-3.5 font-mono text-[11px]">
+              <div class="flex items-center justify-between text-slate-500 mb-2 pb-1.5 border-b border-slate-800/60 text-[10px]">
+                <span class="flex items-center gap-1.5 text-slate-400">
+                  <i class="fas fa-circle-dot text-emerald-400"></i> SYSTEM TELEMETRY
+                </span>
+                <span class="text-slate-400">60 FPS</span>
+              </div>
+              <div class="space-y-1 text-slate-300">
+                <div class="flex justify-between">
+                  <span class="text-slate-400">Architecture:</span>
+                  <span class="text-white font-semibold">Decentralized Edge + Cloud BaaS</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">Core Flagships:</span>
+                  <span class="text-sky-400 font-semibold">SBLT-CAS, minipos v2, Drug Advisor</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">Data Privacy:</span>
+                  <span class="text-emerald-400 font-semibold">100% Client-Side Inference</span>
+                </div>
+              </div>
+            </div>
+
           </div>
+
+          <!-- Bottom Micro Highlight Banner -->
+          <div class="grid grid-cols-2 gap-3">
+            <a href="#flagship" class="glow-card tilt-3d p-3 flex items-center gap-3 group" data-tilt-max="5">
+              <div class="w-9 h-9 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-sm border border-sky-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <div class="overflow-hidden">
+                <div class="text-xs font-bold text-white truncate group-hover:text-sky-400 transition-colors">Flagship Projects</div>
+                <div class="text-[10px] text-slate-400 truncate">6 Masterpieces</div>
+              </div>
+            </a>
+            <a href="#terminal" class="glow-card tilt-3d p-3 flex items-center gap-3 group" data-tilt-max="5">
+              <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm border border-emerald-500/20 group-hover:scale-105 transition-transform flex-shrink-0">
+                <i class="fas fa-terminal"></i>
+              </div>
+              <div class="overflow-hidden">
+                <div class="text-xs font-bold text-white truncate group-hover:text-emerald-400 transition-colors">Developer Console</div>
+                <div class="text-[10px] text-slate-400 truncate">Interactive CLI</div>
+              </div>
+            </a>
+          </div>
+
         </div>
 
       </div>
@@ -439,274 +497,191 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-14 reveal">
-          <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Verified Toolchain & Engineering Skills</span>
+          <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Verified Toolchain & Tech Stack</span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
-            Technical Competencies & Systems Architecture
+            Core Technical Skills & Competencies
           </h2>
-          <p class="text-slate-400 mt-3 text-xs sm:text-sm max-w-2xl mx-auto">
-            สรุปทักษะทางวิศวกรรมและสถาปัตยกรรมระบบที่นำไปประยุกต์ใช้งานจริงในทุกโปรเจกต์ ทั้งการพัฒนาโมเดลปัญญาประดิษฐ์ทางการแพทย์, เฟิร์มแวร์สมองกลฝังตัว (Embedded C++), ระบบชำระเงินฟินเทค, และการคำนวณเชิงวิทยาศาสตร์
+          <p class="text-slate-400 mt-3 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+            สรุปทักษะทางวิศวกรรม เทคโนโลยี และเครื่องมือที่นำไปประยุกต์ใช้งานจริงในทุกโปรเจกต์ ครอบคลุมทั้งภาษาโปรแกรมมิ่ง, ปัญญาประดิษฐ์, สมองกลฝังตัว, และระบบคลาวด์
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          <!-- 1. AI, Computer Vision & Clinical NLP -->
-          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal" data-tilt-max="8">
+          <!-- 1. Programming Languages -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal" data-tilt-max="6">
             <div class="tilt-layer-front">
               <div class="flex items-center justify-between mb-4">
-                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center text-xl shadow-md">
-                  <i class="fas fa-brain"></i>
-                </div>
-                <span class="badge-pill badge-cyan text-[10px] font-mono font-bold">Medical AI & NLP</span>
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">AI, Computer Vision & Clinical NLP</h3>
-              <p class="text-xs text-slate-400 mb-4">สถาปัตยกรรมโมเดล Deep Learning และ NLP วินิจฉัยพยาธิสภาพและย่อยศัพท์ยา</p>
-
-              <div class="space-y-2.5 tilt-layer-mid">
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Edge AI & Client-Side Inference</span>
-                    <span class="text-[10px] font-mono text-sky-400">[SBLT-CAS]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">รันโมเดล Deep Learning (TensorFlow.js / WebGL) บนเบราว์เซอร์ผู้ป่วย 100% รักษาความลับข้อมูลโดยไม่ต้องส่งภาพขึ้น Cloud</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Computer Vision & CNN Classification</span>
-                    <span class="text-[10px] font-mono text-sky-400">[DiabEye.ai]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">คัดกรองรอยโรคและภาพถ่ายจอประสาทตา (Fundus) ด้วย Convolutional Neural Network บนเบราว์เซอร์</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Clinical NLP & Pharmacological Engine</span>
-                    <span class="text-[10px] font-mono text-rose-400">[Drug Advisor]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ประมวลผลภาษาธรรมชาติทางเภสัชกรรม แปลงศัพท์แพทย์และข้อบ่งใช้ยาผ่าน OpenFDA API & MedlinePlus เป็นภาษาที่เข้าใจง่าย</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Hierarchical Router Model</span>
-                    <span class="text-[10px] font-mono text-sky-400">[SBLT-CAS 93%]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ตรรกะคัดแยกประเภทภาพ 7 ระบบอวัยวะก่อนกระจายไปยัง Expert Sub-models ย่อย</p>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
-              <span>Stack: TF.js &middot; CNN &middot; OpenFDA</span>
-              <span class="text-sky-400"><i class="fas fa-check-circle"></i> Verified</span>
-            </div>
-          </div>
-
-          <!-- 2. Embedded Systems & Hardware Communication -->
-          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-100" data-tilt-max="8">
-            <div class="tilt-layer-front">
-              <div class="flex items-center justify-between mb-4">
-                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center text-xl shadow-md">
-                  <i class="fas fa-microchip"></i>
-                </div>
-                <span class="badge-pill badge-teal text-[10px] font-mono font-bold">Embedded & Hardware</span>
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">Embedded Systems & Hardware Bus</h3>
-              <p class="text-xs text-slate-400 mb-4">การเขียนโปรแกรมเฟิร์มแวร์ระดับล่าง สื่อสารกับบัสฮาร์ดแวร์จริงและเซนเซอร์</p>
-
-              <div class="space-y-2.5 tilt-layer-mid">
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>ESP32 Firmware & Embedded C++</span>
-                    <span class="text-[10px] font-mono text-teal-400">[minipos v2]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">พัฒนาเฟิร์มแวร์ด้วย PlatformIO บนชิป Dual-Core ESP32 จัดสรรคิวงาน FreeRTOS และหน่วยความจำแบบ Real-time</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Hardware Protocols (SPI, I2C, UART)</span>
-                    <span class="text-[10px] font-mono text-teal-400">[hongsamud, CYD]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">เขียนไดรเวอร์ควบคุมจอสัมผัส TFT SPI (XPT2046), โมดูลคลื่นวิทยุ RFID (RC522), และจอแสดงผล OLED (SSD1306)</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Binary ESC/POS Protocol</span>
-                    <span class="text-[10px] font-mono text-teal-400">[Thermal Print]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ควบคุมเครื่องพิมพ์ใบเสร็จความร้อนด้วยรหัสคำสั่งไบนารีระดับล่าง (ESC/POS) เพื่อพิมพ์ใบเสร็จและบาร์โค้ด</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Assistive Sensor Telemetry</span>
-                    <span class="text-[10px] font-mono text-teal-400">[Smart Cap/Glasses]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ประมวลผลคลื่นเสียงอัลตราโซนิก (HC-SR04), เซนเซอร์ ToF, สังเคราะห์เสียงเตือน และพิกัดดาวเทียม GPS NMEA</p>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
-              <span>Stack: C/C++ &middot; FreeRTOS &middot; SPI/I2C</span>
-              <span class="text-teal-400"><i class="fas fa-check-circle"></i> Verified</span>
-            </div>
-          </div>
-
-          <!-- 3. Fintech & Cloud BaaS Systems -->
-          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-200" data-tilt-max="8">
-            <div class="tilt-layer-front">
-              <div class="flex items-center justify-between mb-4">
-                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl shadow-md">
-                  <i class="fas fa-cash-register"></i>
-                </div>
-                <span class="badge-pill badge-emerald text-[10px] font-mono font-bold">Fintech & Cloud BaaS</span>
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">Fintech & Cloud BaaS Architecture</h3>
-              <p class="text-xs text-slate-400 mb-4">การเชื่อมต่อฮาร์ดแวร์เข้ากับโครงสร้างการชำระเงินสากลและคลาวด์แบบกระจายตัว</p>
-
-              <div class="space-y-2.5 tilt-layer-mid">
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>EMVCo & BOT PromptPay Standard</span>
-                    <span class="text-[10px] font-mono text-emerald-400">[PromptPay QR]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สร้างโค้ดชำระเงินตามมาตรฐานธนาคารแห่งประเทศไทย เข้ารหัสโครงสร้าง TLV (Tag-Length-Value) และคำนวณ Checksum CRC-16/CCITT</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Supabase PostgREST & Realtime</span>
-                    <span class="text-[10px] font-mono text-emerald-400">[minipos, hongsamud]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">จัดการฐานข้อมูล PostgreSQL บนคลาวด์, นโยบาย Row-Level Security (RLS) และช่องทาง WebSocket ซิงค์สถานะสองทาง</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Offline-First Resilience</span>
-                    <span class="text-[10px] font-mono text-emerald-400">[POS Engine]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สถาปัตยกรรมทำงานออฟไลน์ได้ 100% บันทึกธุรกรรมลงหน่วยความจำชิป และเชื่อมต่อซิงค์อัตโนมัติเมื่อพบสัญญาณ Wi-Fi</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>RESTful API Integration</span>
-                    <span class="text-[10px] font-mono text-emerald-400">[JSON/HTTPS]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ออกแบบ Payload รับส่งข้อมูลแบบประหยัดแบนด์วิธและแรมในสภาพแวดล้อม IoT ที่มีข้อจำกัดด้านหน่วยความจำ</p>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
-              <span>Stack: EMVCo &middot; Supabase &middot; PostgreSQL</span>
-              <span class="text-emerald-400"><i class="fas fa-check-circle"></i> Verified</span>
-            </div>
-          </div>
-
-          <!-- 4. Scientific Computing & Quantitative Chemistry -->
-          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal" data-tilt-max="8">
-            <div class="tilt-layer-front">
-              <div class="flex items-center justify-between mb-4">
-                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl shadow-md">
-                  <i class="fas fa-flask"></i>
-                </div>
-                <span class="badge-pill badge-amber text-[10px] font-mono font-bold">Quantitative Science</span>
-              </div>
-              <h3 class="font-bold text-white text-lg mb-1">Scientific Computing & Spectroscopy</h3>
-              <p class="text-xs text-slate-400 mb-4">การแปลงกฎทางฟิสิกส์และเคมีให้เป็นอัลกอริทึมซอฟต์แวร์ที่ตรวจวัดเชิงปริมาณได้จริง</p>
-
-              <div class="space-y-2.5 tilt-layer-mid">
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Beer-Lambert Law Spectrophotometry</span>
-                    <span class="text-[10px] font-mono text-amber-400">[XQuant]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">แปลงสมาร์ทโฟนเป็นสเปกโทรโฟโตมิเตอร์ คำนวณ Absorbance และ Transmittance จากภาพถ่ายตามสูตร A = &epsilon;bc เทียบเท่าเครื่องมือแล็บ</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Reaction Kinetics (Canvas 2D API)</span>
-                    <span class="text-[10px] font-mono text-amber-400">[Decolorization]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">วิเคราะห์อัตราเร็วการเกิดปฏิกิริยาเคมีจากการฟอกจางสีระดับพิกเซลด้วย HTML5 Canvas Matrix Extraction</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Standard Curve Calibration</span>
-                    <span class="text-[10px] font-mono text-amber-400">[Color2Iron]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ปรับเทียบความถูกต้องของผลลัพธ์ด้วยสมการถดถอยเชิงเส้น (Linear Regression) และชดเชยการกระเจิงของแสงแวดล้อม</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>3D Matrix & Spatial Mathematics</span>
-                    <span class="text-[10px] font-mono text-amber-400">[3D Spatial Lab]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">คำนวณเวกเตอร์ 3 มิติ, Perspective Matrix Projection และ Quaternions สำหรับการหมุนและประเมินมิติสัมพันธ์</p>
-                </div>
-              </div>
-            </div>
-            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
-              <span>Stack: Canvas 2D &middot; Regression &middot; Kinetics</span>
-              <span class="text-amber-400"><i class="fas fa-check-circle"></i> Verified</span>
-            </div>
-          </div>
-
-          <!-- 5. Modern Vanilla Web & GPU-Accelerated 3D -->
-          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-100 md:col-span-2 lg:col-span-2" data-tilt-max="7">
-            <div class="tilt-layer-front">
-              <div class="flex items-center justify-between mb-4">
-                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/30 text-violet-400 flex items-center justify-center text-xl shadow-md">
+                <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center text-xl shadow-md">
                   <i class="fas fa-code"></i>
                 </div>
-                <span class="badge-pill badge-violet text-[10px] font-mono font-bold">Vanilla Web & 3D WebGL</span>
+                <span class="badge-pill badge-cyan text-[10px] font-mono font-bold">Core Languages</span>
               </div>
-              <h3 class="font-bold text-white text-lg mb-1">Modern Vanilla Web & High-Performance Client Architecture</h3>
-              <p class="text-xs text-slate-400 mb-4">การสร้างเว็บแอปพลิเคชันที่มีประสิทธิภาพสูงสุด รวดเร็ว 60 FPS ปราศจากการดาวน์โหลดเฟรมเวิร์กขนาดใหญ่ที่สิ้นเปลืองทรัพยากร</p>
+              <h3 class="font-bold text-white text-lg mb-1">Programming Languages</h3>
+              <p class="text-xs text-slate-400 mb-4">ภาษาหลักที่ใช้ในการพัฒนาตรรกะระบบ เฟิร์มแวร์ฮาร์ดแวร์ และแอปพลิเคชัน</p>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 tilt-layer-mid">
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Zero-Framework Modular ES6+</span>
-                    <span class="text-[10px] font-mono text-violet-400">[Production]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สถาปัตยกรรม OOP Class-based ไร้ภาระ Framework Overhead ทำให้เว็บโหลดเร็วระดับมิลลิวินาทีและควบคุม DOM ได้สมบูรณ์</p>
+              <!-- Skill Pills -->
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">C / C++ (Embedded)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">JavaScript (ES6+)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Python</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">HTML5 / Modern CSS</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">SQL (PostgreSQL)</span>
+              </div>
+
+              <!-- Practical Real-World Applications -->
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-sky-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>พัฒนาเฟิร์มแวร์ C++ ควบคุมไมโครคอนโทรลเลอร์ ESP32 และ Arduino ผ่าน PlatformIO</span>
                 </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Three.js & WebGL 60 FPS Engine</span>
-                    <span class="text-[10px] font-mono text-violet-400">[3D Core]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">เขียนเรนเดอร์กราฟิกโฮโลแกรม 3 มิติ 4 โหมด, การตรวจจับคลื่น Shockwave, และระบบแสง Real-time Specular Point Light</p>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-sky-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>พัฒนาเว็บแอปพลิเคชันด้วย Vanilla JavaScript (ES6+) ควบคุม DOM ไร้ภาระเฟรมเวิร์ก</span>
                 </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>GPU-Accelerated 3D Perspective CSS</span>
-                    <span class="text-[10px] font-mono text-violet-400">[Card Tilt]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ใช้ `transform-style: preserve-3d` และ `translateZ` multi-plane parallax แสดงมิติความลึก 60 FPS ไร้การกระตุก</p>
-                </div>
-
-                <div class="competency-item">
-                  <div class="flex items-center justify-between text-xs font-bold text-white">
-                    <span>Procedural Web Audio API Synthesis</span>
-                    <span class="text-[10px] font-mono text-violet-400">[Zero Audio Assets]</span>
-                  </div>
-                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สังเคราะห์คลื่นเสียง Sci-Fi (Oscillators, Envelopes) สดจากโค้ดโดยไม่ต้องโหลดไฟล์ MP3 ช่วยประหยัดแบนด์วิธ 100%</p>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-sky-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>เขียนสคริปต์ Python สำหรับการวิเคราะห์ข้อมูลและการจำลองโมเดลคอมพิวเตอร์</span>
                 </div>
               </div>
             </div>
-            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
-              <span>Stack: Vanilla JS (ES6+) &middot; Three.js &middot; Web Audio API &middot; 3D CSS</span>
-              <span class="text-violet-400"><i class="fas fa-check-circle"></i> Verified</span>
+
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-5 flex items-center justify-between">
+              <span>Stack: C/C++ &middot; JS &middot; Python &middot; SQL</span>
+              <span class="text-sky-400"><i class="fas fa-check-circle"></i> Applied in Production</span>
+            </div>
+          </div>
+
+          <!-- 2. AI, Machine Learning & Vision -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-100" data-tilt-max="6">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/30 text-violet-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <span class="badge-pill badge-violet text-[10px] font-mono font-bold">Medical & Edge AI</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">AI & Machine Learning</h3>
+              <p class="text-xs text-slate-400 mb-4">การรันโมเดลปัญญาประดิษฐ์บนอุปกรณ์ผู้ใช้ (Edge AI) และระบบสืบค้นทางการแพทย์</p>
+
+              <!-- Skill Pills -->
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">TensorFlow.js (WebGL)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Computer Vision (CNN)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Medical NLP</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">OpenFDA & MedlinePlus APIs</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Linear Regression</span>
+              </div>
+
+              <!-- Practical Real-World Applications -->
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-violet-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>รันโมเดล Deep Learning คัดกรองพยาธิสภาพร่างกาย 7 ระบบ (SBLT-CAS) บนเบราว์เซอร์ผู้ป่วย 100%</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-violet-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>พัฒนาเอ็นจินค้นหาและวิเคราะห์ข้อบ่งใช้ยา (Drug Advisor) ผ่านฐานข้อมูล OpenFDA & MedlinePlus</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-violet-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>คำนวณความเข้มข้นสารเคมีตามกฎ Beer-Lambert Law และปรับเทียบมาตรฐานด้วย Linear Regression</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-5 flex items-center justify-between">
+              <span>Stack: TF.js &middot; CNN &middot; Clinical NLP</span>
+              <span class="text-violet-400"><i class="fas fa-check-circle"></i> Applied in Production</span>
+            </div>
+          </div>
+
+          <!-- 3. Embedded Systems & Hardware IoT -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal" data-tilt-max="6">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <span class="badge-pill badge-teal text-[10px] font-mono font-bold">Embedded Hardware</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">Embedded Systems & IoT</h3>
+              <p class="text-xs text-slate-400 mb-4">การเขียนโปรแกรมเฟิร์มแวร์ระดับล่าง สื่อสารกับบัสฮาร์ดแวร์จริงและเซนเซอร์</p>
+
+              <!-- Skill Pills -->
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">ESP32 / ESP8266</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">PlatformIO / FreeRTOS</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">SPI / I2C / UART Bus</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">RFID (RC522 13.56MHz)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">OLED (SSD1306) & TFT Touch</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Ultrasonic & GPS (NEO-6M)</span>
+              </div>
+
+              <!-- Practical Real-World Applications -->
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-teal-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>พัฒนาเทอร์มินัลชำระเงินจอสัมผัส (minipos v2 / CYD) สื่อสารผ่าน SPI และ FreeRTOS</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-teal-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>สร้างระบบจัดการยืม-คืนหนังสืออัตโนมัติ (hongsamud v2) ด้วยบัตร RFID และจอ OLED ผ่าน I2C</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-teal-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>สร้างอุปกรณ์สวมใส่นำทางผู้พิการทางสายตา ตรวจจับสิ่งกีดขวาง ส่งเสียงเตือน และระบุพิกัดดาวเทียม</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-5 flex items-center justify-between">
+              <span>Stack: ESP32 &middot; FreeRTOS &middot; SPI/I2C</span>
+              <span class="text-teal-400"><i class="fas fa-check-circle"></i> Applied in Production</span>
+            </div>
+          </div>
+
+          <!-- 4. Web Architecture, Cloud BaaS & Protocols -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-100" data-tilt-max="6">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-network-wired"></i>
+                </div>
+                <span class="badge-pill badge-emerald text-[10px] font-mono font-bold">Cloud & Protocols</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">Web Architecture & Protocols</h3>
+              <p class="text-xs text-slate-400 mb-4">การจัดการฐานข้อมูลคลาวด์แบบเรียลไทม์ มาตรฐานการเงิน และสถาปัตยกรรมเว็บ</p>
+
+              <!-- Skill Pills -->
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Supabase (PostgreSQL)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Realtime WebSockets</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">BOT EMVCo PromptPay (CRC16)</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">PWA & Offline-First</span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono text-slate-200">Git & GitHub Pages</span>
+              </div>
+
+              <!-- Practical Real-World Applications -->
+              <div class="space-y-2 text-xs text-slate-300">
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-emerald-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>สร้างเพย์โหลดคิวอาร์โค้ดชำระเงินตามมาตรฐานธนาคารแห่งประเทศไทย (TLV Encoding + CRC16 Checksum)</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-emerald-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>เชื่อมต่อฐานข้อมูลคลาวด์ Supabase และซิงค์สถานะสองทางแบบเรียลไทม์ระหว่างฮาร์ดแวร์กับแดชบอร์ด</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check text-emerald-400 text-[11px] mt-1 flex-shrink-0"></i>
+                  <span>พัฒนาเว็บแอปพลิเคชันแบบ PWA โหลดเร็วระดับมิลลิวินาทีและสามารถใช้งานออฟไลน์ได้สมบูรณ์</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-5 flex items-center justify-between">
+              <span>Stack: Supabase &middot; EMVCo &middot; WebSockets</span>
+              <span class="text-emerald-400"><i class="fas fa-check-circle"></i> Applied in Production</span>
             </div>
           </div>
 
@@ -989,7 +964,7 @@
   <!-- Footer -->
   <footer class="py-6 bg-slate-950 border-t border-slate-900 text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <p>&copy; 2026 Firman Awea (@muaxzinn). Crafted with Pure Modular Vanilla Web & Three.js.</p>
+      <p>&copy; 2026 Firman Awea (@muaxzinn). Crafted with Pure Modular Vanilla Web & Modern CSS.</p>
       <a href="#home" class="hover:text-sky-400 transition-colors">Top of page <i class="fas fa-arrow-up ml-1"></i></a>
     </div>
   </footer>
@@ -999,7 +974,6 @@
   <script src="js/audio.js"></script>
   <script src="js/card-tilt-3d.js"></script>
   <script src="js/projects-data.js"></script>
-  <script src="js/three-scene.js"></script>
   <script src="js/project-filter.js"></script>
   <script src="js/project-modal.js"></script>
   <script src="js/terminal.js"></script>

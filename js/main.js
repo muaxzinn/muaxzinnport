@@ -26,38 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.cardTiltEngine = new window.CardTilt3DEngine('.tilt-3d');
   }
 
-  // 4. Initialize Three.js 3D Holographic Core
-  if (window.HolographicCore3D) {
-    window.holoCore = new window.HolographicCore3D('three-viewport');
-
-    // 3D Mode Selector Buttons
-    const modeBtns = document.querySelectorAll('.three-mode-btn[data-mode]');
-    modeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (window.soundSynth) window.soundSynth.playModeSwitch();
-        modeBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const mode = btn.getAttribute('data-mode');
-        if (window.holoCore && mode) {
-          window.holoCore.buildMode(mode);
-        }
-      });
-    });
-
-    // 3D Wireframe Toggle Button
-    const wireframeBtn = document.getElementById('three-wireframe-toggle');
-    if (wireframeBtn) {
-      wireframeBtn.addEventListener('click', () => {
-        if (window.soundSynth) window.soundSynth.playClick();
-        if (window.holoCore) {
-          const isWire = window.holoCore.toggleWireframe();
-          wireframeBtn.classList.toggle('active', isWire);
-        }
-      });
-    }
-  }
-
   // 4. Setup Scroll Reveal IntersectionObserver
   const revealElements = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
