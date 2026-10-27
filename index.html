@@ -1,1330 +1,1011 @@
 <!DOCTYPE html>
-<html lang="th" class="scroll-smooth">
+<html lang="th" class="scroll-smooth dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>muaxzinn | AI-Augmented System Architect</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firman Awea | AI-Augmented System Architect & Health Tech Innovator</title>
+  <meta name="description"
+    content="Official portfolio of Firman Awea (@muaxzinn) - AI-Augmented System Architect, Embedded IoT Developer, and Health Tech Innovator from Narathiwat, Thailand.">
+  <meta name="author" content="Firman Awea">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Prompt:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+  <!-- Open Graph Protocol -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Firman Awea | AI-Augmented System Architect">
+  <meta property="og:description"
+    content="Bridging Logic, Embedded Hardware, and Artificial Intelligence to build impactful solutions.">
+  <meta property="og:image" content="image1.png">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, Prompt, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class', // Enable class-based dark mode
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'Prompt', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#0ea5e9', // Sky 500
-                        secondary: '#0f172a', // Slate 900
-                        accent: '#38bdf8', // Sky 400
-                        medical: '#14b8a6', // Teal 500
-                        dark: {
-                            bg: '#0B1120',
-                            card: '#1e293b',
-                            text: '#e2e8f0'
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'spin-slow': 'spin 12s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+  <!-- Font Awesome 6.5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Dark Mode Init Script (Prevents flash) -->
-    <script>
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
+  <!-- Three.js (r128) CDN for 3D Holographic Visuals -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+  <!-- Modular CSS Architecture -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/3d-viewport.css">
+  <link rel="stylesheet" href="css/terminal.css">
 
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        .dark ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-
-        .dark ::-webkit-scrollbar-thumb {
-            background: #334155;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        /* Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Glassmorphism Navigation */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .dark .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Hero Background */
-        .hero-bg {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
-        }
-
-        .blob {
-            position: absolute;
-            filter: blur(60px);
-            z-index: 0;
-            opacity: 0.4;
-            animation: float 10s infinite ease-in-out;
-        }
-
-        /* Advanced Card Styling */
-        .premium-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .dark .premium-card {
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(30, 41, 59, 0.6);
-            /* Semi-transparent dark */
-            backdrop-filter: blur(10px);
-        }
-
-        /* Hover Glow Effect */
-        .premium-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(14, 165, 233, 0.05), transparent);
-            transform: translateX(-100%);
-            transition: 0.5s;
-        }
-
-        .premium-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .premium-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: #0ea5e9;
-        }
-
-        .dark .premium-card:hover {
-            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.3);
-            /* Blue glow in dark mode */
-            border-color: rgba(14, 165, 233, 0.5);
-        }
-
-        /* Tech Badge */
-        .tech-pill {
-            background: linear-gradient(to right, #f1f5f9, #e2e8f0);
-            border: 1px solid #cbd5e1;
-            color: #475569;
-            font-size: 0.7rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 9999px;
-            font-weight: 600;
-        }
-
-        .dark .tech-pill {
-            background: linear-gradient(to right, #1e293b, #0f172a);
-            border: 1px solid #334155;
-            color: #cbd5e1;
-        }
-
-        /* Arrow Correction */
-        .workflow-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #cbd5e1;
-            transition: color 0.3s;
-        }
-
-        .dark .workflow-arrow {
-            color: #475569;
-        }
-
-        .workflow-step:hover+.workflow-arrow,
-        .workflow-step:hover~.workflow-arrow i {
-            color: #0ea5e9;
-            /* Primary color */
-        }
-    </style>
+  <!-- Anti-Flash Theme Init -->
+  <script>
+    if (localStorage.getItem('color-theme') === 'light') {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 </head>
 
-<body
-    class="bg-slate-50 text-slate-800 dark:bg-[#0B1120] dark:text-slate-200 font-sans antialiased overflow-x-hidden transition-colors duration-300">
+<body class="selection:bg-sky-500 selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Logo -->
-                <a href="#home" class="flex-shrink-0 flex items-center gap-2 group cursor-pointer">
-                    <div
-                        class="w-9 h-9 bg-gradient-to-br from-primary to-blue-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 bg-white/20 group-hover:translate-x-full transition-transform duration-500">
-                        </div>
-                        M
-                    </div>
-                    <span
-                        class="font-bold text-xl tracking-tight text-slate-900 dark:text-white group-hover:text-primary transition-colors">muaxzinn</span>
-                </a>
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about"
-                        class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium text-sm transition-all hover:-translate-y-0.5">About</a>
-                    <a href="#flagship"
-                        class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium text-sm transition-all hover:-translate-y-0.5">Flagship</a>
-                    <a href="#web-showcase"
-                        class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium text-sm transition-all hover:-translate-y-0.5">Showcase</a>
-                    <a href="#awards"
-                        class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary font-medium text-sm transition-all hover:-translate-y-0.5">Awards</a>
+  <!-- Ambient Noise Texture -->
+  <div class="noise-overlay"></div>
 
-                    <!-- Theme Toggle Button (Desktop) -->
-                    <button id="theme-toggle" type="button"
-                        class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-4 focus:ring-slate-200 dark:focus:ring-slate-700 rounded-lg text-sm p-2.5 transition-all">
-                        <i id="theme-toggle-dark-icon" class="hidden fas fa-moon"></i>
-                        <i id="theme-toggle-light-icon" class="hidden fas fa-sun text-yellow-400"></i>
-                    </button>
+  <!-- Global Toast Notification -->
+  <div id="toast" role="status" aria-live="polite">
+    <i class="fas fa-check-circle text-emerald-400 text-base"></i>
+    <span id="toast-msg">คัดลอกข้อมูลสำเร็จ!</span>
+  </div>
 
-                    <a href="#contact"
-                        class="px-5 py-2.5 rounded-full bg-slate-900 dark:bg-primary text-white hover:bg-primary dark:hover:bg-sky-600 transition-all shadow-lg hover:shadow-primary/30 text-sm font-semibold transform hover:scale-105">
-                        Contact Me
-                    </a>
-                </div>
+  <!-- Spotlight Command Palette Modal (Cmd + K / Ctrl + K / '/') -->
+  <dialog id="cmd-palette" class="m-auto rounded-2xl glass-panel text-slate-100 p-0 max-w-xl w-full shadow-2xl border border-slate-700/70 overflow-hidden backdrop-blur-2xl">
+    <div class="p-4 border-b border-slate-800 flex items-center gap-3">
+      <i class="fas fa-search text-sky-400 text-base"></i>
+      <input type="text" id="cmd-input" placeholder="ค้นหาผลงาน, ทักษะ, หรือส่วนที่ต้องการไป... (Cmd+K)"
+        class="w-full bg-transparent text-slate-100 placeholder-slate-500 text-sm focus:outline-none">
+      <kbd class="px-2 py-0.5 text-[10px] font-mono bg-slate-800 text-slate-400 rounded border border-slate-700">ESC</kbd>
+    </div>
+    <div class="max-h-80 overflow-y-auto p-2 space-y-1" id="cmd-results"></div>
+    <div class="p-3 bg-slate-900/60 border-t border-slate-800/80 text-[11px] text-slate-500 flex justify-between items-center font-mono">
+      <span>กด <kbd class="px-1.5 py-0.5 bg-slate-800 rounded">ESC</kbd> เพื่อปิด</span>
+      <span>Firman Awea Spotlight</span>
+    </div>
+  </dialog>
 
-                <!-- Mobile controls -->
-                <div class="md:hidden flex items-center gap-4">
-                    <!-- Theme Toggle Button (Mobile) -->
-                    <button id="theme-toggle-mobile" type="button"
-                        class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-sm p-2">
-                        <i id="theme-toggle-dark-icon-mobile" class="hidden fas fa-moon"></i>
-                        <i id="theme-toggle-light-icon-mobile" class="hidden fas fa-sun text-yellow-400"></i>
-                    </button>
+  <!-- Deep-Dive Architecture Specs Modal (Native <dialog>) -->
+  <dialog id="project-modal" class="m-auto rounded-3xl glass-panel text-slate-100 p-0 max-w-2xl w-full shadow-2xl border border-slate-700/80 overflow-hidden backdrop-blur-2xl">
+    <div class="p-6 sm:p-8 space-y-5">
+      <div class="flex items-start justify-between border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-lg">
+            <i id="modal-icon" class="fas fa-microchip"></i>
+          </div>
+          <div>
+            <h3 id="modal-title" class="text-xl font-bold text-white tracking-tight">Project Title</h3>
+            <span id="modal-subtitle" class="text-xs font-mono text-sky-400">Subtitle</span>
+          </div>
+        </div>
+        <button id="modal-close-btn" aria-label="Close Modal" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
 
-                    <button id="mobile-menu-btn"
-                        class="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white p-2 rounded-md focus:outline-none transition-colors">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
+      <div id="modal-roadmap-container"></div>
+
+      <div class="space-y-4">
+        <div>
+          <h4 class="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">ภาพรวมระบบ (Overview)</h4>
+          <p id="modal-desc" class="text-sm text-slate-300 leading-relaxed"></p>
         </div>
 
-        <!-- Mobile Menu (Hidden by default) -->
-        <div class="hidden md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 absolute w-full left-0 top-16 shadow-xl transition-all duration-300 origin-top"
-            id="mobile-menu">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#about"
-                    class="block px-4 py-3 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">About</a>
-                <a href="#flagship"
-                    class="block px-4 py-3 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Flagship
-                    Projects</a>
-                <a href="#web-showcase"
-                    class="block px-4 py-3 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Web
-                    Showcase</a>
-                <a href="#awards"
-                    class="block px-4 py-3 rounded-lg text-base font-medium text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Awards</a>
-                <a href="#contact"
-                    class="block px-4 py-3 rounded-lg text-base font-medium bg-primary/10 text-primary mt-4 text-center">Contact
-                    Me</a>
-            </div>
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+          <h4 class="text-xs font-mono text-sky-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-2">
+            <i class="fas fa-layer-group"></i> Architecture & Engineering Logic
+          </h4>
+          <p id="modal-arch" class="text-xs text-slate-300 leading-relaxed"></p>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-bg text-white"
-        id="home">
-        <!-- Animated Blobs -->
-        <div class="blob bg-blue-500 w-64 h-64 md:w-96 md:h-96 rounded-full top-0 left-0 mix-blend-multiply opacity-20 animate-float"
-            style="animation-delay: 0s;"></div>
-        <div class="blob bg-teal-500 w-64 h-64 md:w-96 md:h-96 rounded-full bottom-0 right-0 mix-blend-multiply opacity-20 animate-float"
-            style="animation-delay: 2s;"></div>
-        <div class="blob bg-purple-500 w-56 h-56 md:w-80 md:h-80 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-multiply opacity-20 animate-float"
-            style="animation-delay: 4s;"></div>
+        <div>
+          <h4 class="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2">Technology Stack</h4>
+          <div id="modal-tags" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
 
-        <div
-            class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10 py-16 md:py-32">
-            <div
-                class="reveal active inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-12 hover:bg-white/20 transition-colors cursor-default">
-                <span class="relative flex h-3 w-3">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                </span>
-                <span class="text-sm font-medium text-sky-100 tracking-wide">System Architect & Innovator</span>
+      <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+        <button onclick="window.projectModal.close()" class="px-4 py-2 rounded-xl text-slate-400 hover:text-white text-xs font-semibold">
+          ปิดหน้าต่าง
+        </button>
+        <a id="modal-link" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-white text-xs font-bold transition-all shadow-md flex items-center gap-2">
+          เปิดระบบใช้งานจริง <i class="fas fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Sticky Glass Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-40 transition-all duration-300 glass-panel border-b border-white/5" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo / Name -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-teal-500 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base shadow-lg shadow-sky-500/25 group-hover:scale-105 transition-transform duration-300">
+            <span class="relative z-10">FA</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-bold text-base tracking-tight text-white group-hover:text-sky-400 transition-colors">Firman Awea</span>
+            <span class="text-[10px] text-slate-400 font-mono tracking-wider uppercase flex items-center gap-1.5">
+              <span class="pulse-dot"></span> @muaxzinn
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <div class="hidden lg:flex items-center space-x-1">
+          <a href="#home" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Overview</a>
+          <a href="#philosophy" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Workflow</a>
+          <a href="#flagship" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Flagships</a>
+          <a href="#skills" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Skills</a>
+          <a href="#terminal" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Terminal</a>
+          <a href="#showcase" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Showcase</a>
+          <a href="#awards" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all">Awards</a>
+
+          <div class="h-4 w-[1px] bg-slate-800 mx-2"></div>
+
+          <!-- Quick Search Trigger -->
+          <button id="search-trigger" title="Spotlight Search (Cmd+K)" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 transition-all text-xs border border-slate-700/40">
+            <i class="fas fa-search text-[11px]"></i>
+            <span class="text-[10px] text-slate-400 font-mono">⌘K</span>
+          </button>
+
+          <!-- Sound FX Toggle Button -->
+          <button id="sound-toggle" aria-label="Toggle Sound Effects" title="Toggle Sound FX" class="p-2 text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 rounded-lg transition-colors text-xs">
+            <i class="fas fa-volume-high sound-icon-on"></i>
+            <i class="fas fa-volume-xmark sound-icon-muted hidden"></i>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" aria-label="Toggle Theme" class="p-2 text-slate-400 hover:text-amber-400 hover:bg-slate-800/60 rounded-lg transition-colors text-xs">
+            <i class="fas fa-moon theme-icon-dark"></i>
+            <i class="fas fa-sun theme-icon-light hidden"></i>
+          </button>
+
+          <!-- Contact CTA -->
+          <a href="#contact" class="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white text-xs font-bold shadow-md shadow-sky-500/20 transition-all">
+            Connect
+          </a>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <button id="search-trigger-mobile" aria-label="Quick Search" class="p-2 text-slate-400 hover:text-white">
+            <i class="fas fa-search text-sm"></i>
+          </button>
+          <button id="sound-toggle-mobile" aria-label="Toggle Sound Effects" class="p-2 text-slate-400 hover:text-white">
+            <i class="fas fa-volume-high sound-icon-on"></i>
+            <i class="fas fa-volume-xmark sound-icon-muted hidden"></i>
+          </button>
+          <button id="theme-toggle-mobile" aria-label="Toggle Theme" class="p-2 text-slate-400 hover:text-white">
+            <i class="fas fa-moon theme-icon-dark"></i>
+            <i class="fas fa-sun theme-icon-light hidden"></i>
+          </button>
+          <button id="mobile-menu-btn" aria-label="Open Mobile Menu" class="p-2 text-slate-300 hover:text-white focus:outline-none">
+            <i class="fas fa-bars-staggered text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-[#070b16]/95 backdrop-blur-2xl px-6 py-6 space-y-3">
+      <a href="#home" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Overview</a>
+      <a href="#philosophy" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Workflow</a>
+      <a href="#flagship" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Flagships</a>
+      <a href="#skills" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Skills</a>
+      <a href="#terminal" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">AI Terminal</a>
+      <a href="#showcase" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Showcase</a>
+      <a href="#awards" class="block py-2 text-sm font-medium text-slate-200 hover:text-sky-400">Awards</a>
+      <a href="#contact" class="block w-full text-center py-3 mt-4 rounded-xl bg-sky-500 text-white font-bold text-sm">Contact Firman</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Three.js 3D Viewport & Bio Card -->
+  <header id="home" class="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
+    <!-- Ambient Blur Spheres -->
+    <div class="absolute -top-32 left-1/4 w-96 h-96 bg-sky-500/15 rounded-full blur-[140px] pointer-events-none animate-glow-pulse"></div>
+    <div class="absolute top-1/3 -right-20 w-96 h-96 bg-teal-500/12 rounded-full blur-[140px] pointer-events-none animate-glow-pulse" style="animation-delay: 2s;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <!-- Left Column: Bio & Core Interests -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-sky-500/30 text-sky-300 text-xs font-semibold mb-6 shadow-inner">
+            <span class="pulse-dot"></span>
+            AI-Augmented System Architect &middot; Narathiwat, Thailand
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-5">
+            Firman Awea<br>
+            <span class="shimmer-text">Logic. Hardware. Intelligence.</span>
+          </h1>
+
+          <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed mb-6">
+            นักพัฒนาระบบและนวัตกรอิสระ ผู้บูรณาการการออกแบบ <strong class="text-white">ตรรกะระบบ (System Architecture)</strong>, <strong class="text-sky-400">อุปกรณ์ฮาร์ดแวร์ IoT</strong>, และ <strong class="text-teal-400">โมเดลปัญญาประดิษฐ์ (AI)</strong> เพื่อสร้างสรรค์โซลูชันที่มีประสิทธิภาพสูงสุด
+          </p>
+
+          <!-- Core Interests Hierarchy (Strict Sequence) -->
+          <div class="mb-8">
+            <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-2 font-semibold">Core Focus Hierarchy</span>
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-1.5">
+              <span class="badge-pill badge-cyan shadow-sm shadow-sky-500/20 font-bold border-sky-400/40"><span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span> 1. AI (Primary)</span>
+              <span class="badge-pill badge-teal"><i class="fas fa-code"></i> 2. Coding</span>
+              <span class="badge-pill badge-violet"><i class="fas fa-robot"></i> 3. AI Agents</span>
+              <span class="badge-pill badge-emerald"><i class="fas fa-heart-pulse"></i> 4. Health Tech</span>
+              <span class="badge-pill badge-amber"><i class="fas fa-stethoscope"></i> 5. AI ทางการแพทย์</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 mb-10">
+            <a href="#flagship" class="w-full sm:w-auto btn-primary">
+              <i class="fas fa-rocket"></i> สำรวจผลงานเด่น
+            </a>
+            <a href="#terminal" class="w-full sm:w-auto btn-secondary">
+              <i class="fas fa-terminal text-sky-400"></i> เปิด AI Terminal
+            </a>
+            <a href="https://github.com/muaxzinn" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto btn-secondary">
+              <i class="fab fa-github"></i> GitHub (@muaxzinn)
+            </a>
+          </div>
+
+          <!-- Numerical Stat Counters -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-800/80">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono counter-val" data-target="25">0</div>
+              <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider mt-0.5">Projects Built</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-sky-400 font-mono counter-val" data-target="4">0</div>
+              <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider mt-0.5">Major Awards</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-teal-400 font-mono">3.95</div>
+              <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider mt-0.5">GPAX (Sci-Math)</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-mono">100%</div>
+              <div class="text-[11px] text-slate-400 font-medium uppercase tracking-wider mt-0.5">Client Privacy</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Three.js 3D Holographic Core Viewport -->
+        <div class="lg:col-span-5 flex flex-col gap-4">
+          <div class="three-container" id="three-viewport">
+            <canvas id="three-canvas"></canvas>
+
+            <!-- Top HUD Info -->
+            <div class="three-hud-top">
+              <span class="three-hud-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+                Interactive 3D Core
+              </span>
+              <span class="three-click-hint hidden sm:inline">Drag Orbit &middot; Scroll Zoom &middot; Click Shockwave</span>
             </div>
 
-            <h1 class="reveal active text-4xl md:text-7xl font-bold tracking-tight mb-10 leading-tight drop-shadow-2xl">
-                muaxzinn
-                <br>
-                <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-sky-400 animate-pulse-slow">AI-Augmented
-                    Developer</span>
-            </h1>
+            <!-- Mode Switcher Buttons & Controls -->
+            <div class="three-hud-bottom">
+              <button class="three-mode-btn active" data-mode="ai-agent" title="Switch to AI Agent Hologram">
+                <i class="fas fa-brain text-sky-400"></i> AI Agent
+              </button>
+              <button class="three-mode-btn" data-mode="dna-helix" title="Switch to Medical AI DNA Double Helix">
+                <i class="fas fa-dna text-teal-400"></i> Medical DNA
+              </button>
+              <button class="three-mode-btn" data-mode="iot-sphere" title="Switch to IoT Sensor Telemetry Globe">
+                <i class="fas fa-satellite text-amber-400"></i> IoT Sphere
+              </button>
+              <button class="three-mode-btn" data-mode="synapse-mesh" title="Switch to Neural Synapse Network">
+                <i class="fas fa-network-wired text-purple-400"></i> Synapses
+              </button>
+              <button id="three-wireframe-toggle" class="three-mode-btn" title="Toggle 3D Wireframe / Solid">
+                <i class="fas fa-cube text-emerald-400"></i> Wireframe
+              </button>
+            </div>
+          </div>
 
-            <p
-                class="reveal active mt-8 max-w-2xl text-lg md:text-2xl text-slate-300 mx-auto font-light leading-relaxed px-4">
-                Bridging the gap between <span class="text-white font-medium border-b-2 border-primary/50">Logic</span>
-                & <span class="text-white font-medium border-b-2 border-medical/50">Innovation</span>.
+          <!-- Profile Snapshot Card with Dynamic Age & 3D Tilt -->
+          <div class="glow-card tilt-3d p-4 flex items-center justify-between gap-4" data-tilt-max="10">
+            <div class="flex items-center gap-3">
+              <div class="tilt-layer-deep w-12 h-12 rounded-xl overflow-hidden border border-slate-700 flex-shrink-0 bg-slate-900 shadow-md">
+                <img src="image1.png" alt="Firman Awea" class="w-full h-full object-cover object-top">
+              </div>
+              <div class="tilt-layer-front">
+                <h4 class="font-bold text-white text-sm">Firman Awea</h4>
+                <p class="text-xs text-slate-400">
+                  <span class="dynamic-age-val font-mono font-bold text-sky-400">18</span> Years Old &middot; Narathiwat, TH
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 tilt-layer-front">
+              <button onclick="copyToClipboard('firman.awea@gmail.com', 'คัดลอกอีเมลแล้ว!')" class="p-2 rounded-lg bg-slate-800 hover:bg-sky-500 text-slate-300 hover:text-white text-xs transition-colors" title="Copy Email">
+                <i class="fas fa-envelope"></i>
+              </button>
+              <button onclick="copyToClipboard('091-725-7551', 'คัดลอกเบอร์โทรแล้ว!')" class="p-2 rounded-lg bg-slate-800 hover:bg-sky-500 text-slate-300 hover:text-white text-xs transition-colors" title="Copy Phone">
+                <i class="fas fa-phone"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Section 2: AI-Augmented Workflow Methodology (Bento Grid) -->
+    <section id="philosophy" class="py-20 relative border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+          <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">The Methodology</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+            The AI-Augmented Architecture
+          </h2>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base leading-relaxed">
+            เริ่มต้นจากการวิเคราะห์ปัญหาเชิงลึก ออกแบบสถาปัตยกรรมระบบ แล้วใช้ AI เป็นเครื่องมือเร่งการสังเคราะห์โค้ด
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal" data-tilt-max="9">
+            <div class="tilt-layer-front">
+              <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl mb-4 shadow-sm border border-sky-500/20">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-sky-400 uppercase">Phase 01</span>
+              <h3 class="text-xl font-bold text-white mt-1 mb-2">Logic & System Blueprint</h3>
+              <p class="card-desc text-slate-300">วิเคราะห์ปัญหา แปลงเป็นตรรกะระบบ โฟลวชาร์ต และโครงสร้างข้อมูลโดยไม่อิงกับภาษาโปรแกรม</p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 tilt-layer-front">
+              <i class="fas fa-check text-sky-400 mr-1"></i> Data Flow & Math Formulation
+            </div>
+          </div>
+
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-100" data-tilt-max="9">
+            <div class="tilt-layer-front">
+              <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center text-xl mb-4 shadow-sm border border-violet-500/20">
+                <i class="fas fa-robot"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-violet-400 uppercase">Phase 02</span>
+              <h3 class="text-xl font-bold text-white mt-1 mb-2">AI Synthesis & Accelerators</h3>
+              <p class="card-desc text-slate-300">ใช้ Prompt Engineering สั่งการ AI สร้างโครงสร้างโค้ดตามสเปก ช่วยลดเวลา Boilerplate</p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 tilt-layer-front">
+              <i class="fas fa-check text-violet-400 mr-1"></i> Rapid AI Code Generation
+            </div>
+          </div>
+
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-200" data-tilt-max="9">
+            <div class="tilt-layer-front">
+              <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl mb-4 shadow-sm border border-teal-500/20">
+                <i class="fas fa-code-merge"></i>
+              </div>
+              <span class="text-xs font-mono font-bold text-teal-400 uppercase">Phase 03</span>
+              <h3 class="text-xl font-bold text-white mt-1 mb-2">Hardware & Production Polish</h3>
+              <p class="card-desc text-slate-300">แฟลชเฟิร์มแวร์ลงบอร์ด เชื่อมต่อคลาวด์ ตรวจสอบความถูกต้องทางวิทยาศาสตร์และทดสอบจริง</p>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 tilt-layer-front">
+              <i class="fas fa-check text-teal-400 mr-1"></i> Production Debug & Validation
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Flagship Innovations (Elevated Masterpieces with Micro-Roadmaps) -->
+    <section id="flagship" class="py-20 relative bg-slate-950/40 border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 reveal">
+          <div>
+            <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Masterpiece Suite</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+              Flagship Innovations
+            </h2>
+          </div>
+          <p class="text-slate-400 max-w-md mt-3 md:mt-0 text-xs sm:text-sm">
+            ผลงานชิ้นเอกที่ผสานระบบปัญญาประดิษฐ์ ฮาร์ดแวร์ฝังตัว (Embedded IoT) และฟินเทคเข้าด้วยกัน
+          </p>
+        </div>
+
+        <!-- Flagships Grid (Rendered by js/project-filter.js) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="flagship-grid"></div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Skills & System Competencies -->
+    <section id="skills" class="py-20 relative border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+          <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Verified Toolchain & Engineering Skills</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+            Technical Competencies & Systems Architecture
+          </h2>
+          <p class="text-slate-400 mt-3 text-xs sm:text-sm max-w-2xl mx-auto">
+            สรุปทักษะความสามารถทางวิศวกรรมจริงที่สังเคราะห์จากโค้ดเบสและระบบที่สร้างขึ้นจริง (ไม่ใช่ AI เพ้อฝัน) ครอบคลุมทั้งปัญญาประดิษฐ์ทางการแพทย์, ระบบสมองกลฝังตัว, ฟินเทค, และวิทยาการคำนวณ
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- 1. AI, Computer Vision & Clinical NLP -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal" data-tilt-max="8">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-brain"></i>
+                </div>
+                <span class="badge-pill badge-cyan text-[10px] font-mono font-bold">Medical AI & NLP</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">AI, Computer Vision & Clinical NLP</h3>
+              <p class="text-xs text-slate-400 mb-4">สถาปัตยกรรมโมเดล Deep Learning และ NLP วินิจฉัยพยาธิสภาพและย่อยศัพท์ยา</p>
+
+              <div class="space-y-2.5 tilt-layer-mid">
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Edge AI & Client-Side Inference</span>
+                    <span class="text-[10px] font-mono text-sky-400">[SBLT-CAS]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">รันโมเดล Deep Learning (TensorFlow.js / WebGL) บนเบราว์เซอร์ผู้ป่วย 100% รักษาความลับข้อมูลโดยไม่ต้องส่งภาพขึ้น Cloud</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Computer Vision & CNN Classification</span>
+                    <span class="text-[10px] font-mono text-sky-400">[DiabEye, wkskin]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">คัดกรองรอยโรคผิวหนัง, มะเร็งเมลาโนมา, และภาพถ่ายจอประสาทตา (Fundus) ด้วย Convolutional Neural Network</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Clinical NLP & Pharmacological Engine</span>
+                    <span class="text-[10px] font-mono text-rose-400">[Drug Advisor]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ประมวลผลภาษาธรรมชาติทางเภสัชกรรม แปลงศัพท์แพทย์และข้อบ่งใช้ยาผ่าน OpenFDA API & MedlinePlus เป็นภาษาที่เข้าใจง่าย</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Hierarchical Router Model</span>
+                    <span class="text-[10px] font-mono text-sky-400">[SBLT-CAS 93%]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ตรรกะคัดแยกประเภทภาพ 7 ระบบอวัยวะก่อนกระจายไปยัง Expert Sub-models ย่อย</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
+              <span>Stack: TF.js &middot; CNN &middot; OpenFDA</span>
+              <span class="text-sky-400"><i class="fas fa-check-circle"></i> Verified</span>
+            </div>
+          </div>
+
+          <!-- 2. Embedded Systems & Hardware Communication -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-100" data-tilt-max="8">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-microchip"></i>
+                </div>
+                <span class="badge-pill badge-teal text-[10px] font-mono font-bold">Embedded & Hardware</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">Embedded Systems & Hardware Bus</h3>
+              <p class="text-xs text-slate-400 mb-4">การเขียนโปรแกรมเฟิร์มแวร์ระดับล่าง สื่อสารกับบัสฮาร์ดแวร์จริงและเซนเซอร์</p>
+
+              <div class="space-y-2.5 tilt-layer-mid">
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>ESP32 Firmware & Embedded C++</span>
+                    <span class="text-[10px] font-mono text-teal-400">[minipos v2]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">พัฒนาเฟิร์มแวร์ด้วย PlatformIO บนชิป Dual-Core ESP32 จัดสรรคิวงาน FreeRTOS และหน่วยความจำแบบ Real-time</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Hardware Protocols (SPI, I2C, UART)</span>
+                    <span class="text-[10px] font-mono text-teal-400">[hongsamud, CYD]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">เขียนไดรเวอร์ควบคุมจอสัมผัส TFT SPI (XPT2046), โมดูลคลื่นวิทยุ RFID (RC522), และจอแสดงผล OLED (SSD1306)</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Binary ESC/POS Protocol</span>
+                    <span class="text-[10px] font-mono text-teal-400">[Thermal Print]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ควบคุมเครื่องพิมพ์ใบเสร็จความร้อนด้วยรหัสคำสั่งไบนารีระดับล่าง (ESC/POS) เพื่อพิมพ์ใบเสร็จและบาร์โค้ด</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Assistive Sensor Telemetry</span>
+                    <span class="text-[10px] font-mono text-teal-400">[Smart Cap/Glasses]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ประมวลผลคลื่นเสียงอัลตราโซนิก (HC-SR04), เซนเซอร์ ToF, สังเคราะห์เสียงเตือน และพิกัดดาวเทียม GPS NMEA</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
+              <span>Stack: C/C++ &middot; FreeRTOS &middot; SPI/I2C</span>
+              <span class="text-teal-400"><i class="fas fa-check-circle"></i> Verified</span>
+            </div>
+          </div>
+
+          <!-- 3. Fintech & Cloud BaaS Systems -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-200" data-tilt-max="8">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-cash-register"></i>
+                </div>
+                <span class="badge-pill badge-emerald text-[10px] font-mono font-bold">Fintech & Cloud BaaS</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">Fintech & Cloud BaaS Architecture</h3>
+              <p class="text-xs text-slate-400 mb-4">การเชื่อมต่อฮาร์ดแวร์เข้ากับโครงสร้างการชำระเงินสากลและคลาวด์แบบกระจายตัว</p>
+
+              <div class="space-y-2.5 tilt-layer-mid">
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>EMVCo & BOT PromptPay Standard</span>
+                    <span class="text-[10px] font-mono text-emerald-400">[PromptPay QR]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สร้างโค้ดชำระเงินตามมาตรฐานธนาคารแห่งประเทศไทย เข้ารหัสโครงสร้าง TLV (Tag-Length-Value) และคำนวณ Checksum CRC-16/CCITT</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Supabase PostgREST & Realtime</span>
+                    <span class="text-[10px] font-mono text-emerald-400">[minipos, hongsamud]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">จัดการฐานข้อมูล PostgreSQL บนคลาวด์, นโยบาย Row-Level Security (RLS) และช่องทาง WebSocket ซิงค์สถานะสองทาง</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Offline-First Resilience</span>
+                    <span class="text-[10px] font-mono text-emerald-400">[POS Engine]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สถาปัตยกรรมทำงานออฟไลน์ได้ 100% บันทึกธุรกรรมลงหน่วยความจำชิป และเชื่อมต่อซิงค์อัตโนมัติเมื่อพบสัญญาณ Wi-Fi</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>RESTful API Integration</span>
+                    <span class="text-[10px] font-mono text-emerald-400">[JSON/HTTPS]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ออกแบบ Payload รับส่งข้อมูลแบบประหยัดแบนด์วิธและแรมในสภาพแวดล้อม IoT ที่มีข้อจำกัดด้านหน่วยความจำ</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
+              <span>Stack: EMVCo &middot; Supabase &middot; PostgreSQL</span>
+              <span class="text-emerald-400"><i class="fas fa-check-circle"></i> Verified</span>
+            </div>
+          </div>
+
+          <!-- 4. Scientific Computing & Quantitative Chemistry -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal" data-tilt-max="8">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <span class="badge-pill badge-amber text-[10px] font-mono font-bold">Quantitative Science</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">Scientific Computing & Spectroscopy</h3>
+              <p class="text-xs text-slate-400 mb-4">การแปลงกฎทางฟิสิกส์และเคมีให้เป็นอัลกอริทึมซอฟต์แวร์ที่ตรวจวัดเชิงปริมาณได้จริง</p>
+
+              <div class="space-y-2.5 tilt-layer-mid">
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Beer-Lambert Law Spectrophotometry</span>
+                    <span class="text-[10px] font-mono text-amber-400">[XQuant]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">แปลงสมาร์ทโฟนเป็นสเปกโทรโฟโตมิเตอร์ คำนวณ Absorbance และ Transmittance จากภาพถ่ายตามสูตร A = &epsilon;bc เทียบเท่าเครื่องมือแล็บ</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Reaction Kinetics (Canvas 2D API)</span>
+                    <span class="text-[10px] font-mono text-amber-400">[Decolorization]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">วิเคราะห์อัตราเร็วการเกิดปฏิกิริยาเคมีจากการฟอกจางสีระดับพิกเซลด้วย HTML5 Canvas Matrix Extraction</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Standard Curve Calibration</span>
+                    <span class="text-[10px] font-mono text-amber-400">[Color2Iron]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ปรับเทียบความถูกต้องของผลลัพธ์ด้วยสมการถดถอยเชิงเส้น (Linear Regression) และชดเชยการกระเจิงของแสงแวดล้อม</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>3D Matrix & Spatial Mathematics</span>
+                    <span class="text-[10px] font-mono text-amber-400">[3D Spatial Lab]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">คำนวณเวกเตอร์ 3 มิติ, Perspective Matrix Projection และ Quaternions สำหรับการหมุนและประเมินมิติสัมพันธ์</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
+              <span>Stack: Canvas 2D &middot; Regression &middot; Kinetics</span>
+              <span class="text-amber-400"><i class="fas fa-check-circle"></i> Verified</span>
+            </div>
+          </div>
+
+          <!-- 5. Modern Vanilla Web & GPU-Accelerated 3D -->
+          <div class="glow-card tilt-3d p-6 flex flex-col justify-between reveal delay-100 md:col-span-2 lg:col-span-2" data-tilt-max="7">
+            <div class="tilt-layer-front">
+              <div class="flex items-center justify-between mb-4">
+                <div class="tilt-layer-deep w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/30 text-violet-400 flex items-center justify-center text-xl shadow-md">
+                  <i class="fas fa-code"></i>
+                </div>
+                <span class="badge-pill badge-violet text-[10px] font-mono font-bold">Vanilla Web & 3D WebGL</span>
+              </div>
+              <h3 class="font-bold text-white text-lg mb-1">Modern Vanilla Web & High-Performance Client Architecture</h3>
+              <p class="text-xs text-slate-400 mb-4">การสร้างเว็บแอปพลิเคชันที่มีประสิทธิภาพสูงสุด รวดเร็ว 60 FPS ปราศจากการดาวน์โหลดเฟรมเวิร์กขนาดใหญ่ที่สิ้นเปลืองทรัพยากร</p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 tilt-layer-mid">
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Zero-Framework Modular ES6+</span>
+                    <span class="text-[10px] font-mono text-violet-400">[Production]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สถาปัตยกรรม OOP Class-based ไร้ภาระ Framework Overhead ทำให้เว็บโหลดเร็วระดับมิลลิวินาทีและควบคุม DOM ได้สมบูรณ์</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Three.js & WebGL 60 FPS Engine</span>
+                    <span class="text-[10px] font-mono text-violet-400">[3D Core]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">เขียนเรนเดอร์กราฟิกโฮโลแกรม 3 มิติ 4 โหมด, การตรวจจับคลื่น Shockwave, และระบบแสง Real-time Specular Point Light</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>GPU-Accelerated 3D Perspective CSS</span>
+                    <span class="text-[10px] font-mono text-violet-400">[Card Tilt]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">ใช้ `transform-style: preserve-3d` และ `translateZ` multi-plane parallax แสดงมิติความลึก 60 FPS ไร้การกระตุก</p>
+                </div>
+
+                <div class="competency-item">
+                  <div class="flex items-center justify-between text-xs font-bold text-white">
+                    <span>Procedural Web Audio API Synthesis</span>
+                    <span class="text-[10px] font-mono text-violet-400">[Zero Audio Assets]</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 mt-1 leading-relaxed">สังเคราะห์คลื่นเสียง Sci-Fi (Oscillators, Envelopes) สดจากโค้ดโดยไม่ต้องโหลดไฟล์ MP3 ช่วยประหยัดแบนด์วิธ 100%</p>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-800/80 text-[11px] font-mono text-slate-500 mt-4 flex items-center justify-between">
+              <span>Stack: Vanilla JS (ES6+) &middot; Three.js &middot; Web Audio API &middot; 3D CSS</span>
+              <span class="text-violet-400"><i class="fas fa-check-circle"></i> Verified</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive AI Agent Terminal Console -->
+    <section id="terminal" class="py-20 relative bg-slate-950/60 border-t border-slate-800/80">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-10 reveal">
+          <span class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">CLI Simulation</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3">
+            Interactive AI Agent Terminal
+          </h2>
+          <p class="text-slate-400 mt-2 text-xs">
+            ทดลองพิมพ์คำสั่งเพื่อตรวจสอบการวินิจฉัยและสถาปัตยกรรมของระบบได้โดยตรง
+          </p>
+        </div>
+
+        <div class="terminal-window tilt-3d reveal" data-tilt-max="5">
+          <!-- Terminal Title Bar -->
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-green"></span>
+            </div>
+            <span class="terminal-title">firman@agent-node: ~</span>
+            <div class="terminal-actions">
+              <button id="terminal-clear-btn" class="terminal-btn-clear" title="Clear console">clear</button>
+            </div>
+          </div>
+
+          <!-- Terminal Output Log -->
+          <div class="terminal-body" id="terminal-body"></div>
+
+          <!-- Quick Suggested Command Chips -->
+          <div class="terminal-quick-tags">
+            <span class="text-[10px] text-slate-500 font-mono mr-1">Quick Run:</span>
+            <span class="terminal-tag" data-cmd="status">status</span>
+            <span class="terminal-tag" data-cmd="projects">projects</span>
+            <span class="terminal-tag" data-cmd="roadmap">roadmap</span>
+            <span class="terminal-tag" data-cmd="agent run DiabEye Retinopathy">agent run</span>
+            <span class="terminal-tag" data-cmd="hardware">hardware</span>
+            <span class="terminal-tag" data-cmd="skills">skills</span>
+          </div>
+
+          <!-- Terminal Input Prompt -->
+          <div class="terminal-input-bar">
+            <span class="terminal-prompt">firman@agent:~$</span>
+            <input type="text" id="terminal-input" class="terminal-input" placeholder="พิมพ์คำสั่ง เช่น help, status, projects..." autocomplete="off">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 6: Extended Showcase & Sandbox (20+ Technical Projects) -->
+    <section id="showcase" class="py-20 relative border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 reveal">
+          <div>
+            <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Extended Registry</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+              Web Showcase & Sandbox
+            </h2>
+          </div>
+
+          <!-- Instant Search Box -->
+          <div class="mt-4 md:mt-0 w-full md:w-64 relative">
+            <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+            <input type="text" id="project-search" placeholder="ค้นหาโปรเจกต์..."
+              class="w-full bg-slate-900/80 border border-slate-800 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors">
+          </div>
+        </div>
+
+        <!-- 4-Category Filter Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8 reveal" id="filter-pills-bar">
+          <button class="filter-pill active" data-filter="all">All Projects</button>
+          <button class="filter-pill" data-filter="ai-medical"><i class="fas fa-brain text-sky-400 mr-1"></i> AI & Medical Science</button>
+          <button class="filter-pill" data-filter="embedded-fintech"><i class="fas fa-microchip text-teal-400 mr-1"></i> Embedded IoT & Fintech</button>
+          <button class="filter-pill" data-filter="edtech-exams"><i class="fas fa-graduation-cap text-amber-400 mr-1"></i> EdTech & Exam Engines</button>
+          <button class="filter-pill" data-filter="web-utilities"><i class="fas fa-layer-group text-violet-400 mr-1"></i> Web Utilities & Social Impact</button>
+        </div>
+
+        <!-- Showcase Dynamic Grid (Rendered by js/project-filter.js) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="projects-grid"></div>
+
+      </div>
+    </section>
+
+    <!-- Section 7: Honors, Awards & Journey Timeline -->
+    <section id="awards" class="py-20 relative bg-slate-950/40 border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+          <span class="text-xs font-mono font-bold tracking-widest text-amber-400 uppercase bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">Recognition</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+            Honors, Awards & Field Journey
+          </h2>
+          <p class="text-slate-400 mt-2 text-xs sm:text-sm">
+            การแข่งขันระดับนานาชาติ รางวัลระดับชาติ และประสบการณ์จริงในภาคสนาม
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+          <!-- Left Column: Major Awards -->
+          <div class="lg:col-span-7 space-y-4">
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <i class="fas fa-trophy text-amber-400"></i> รางวัลและเกียรติประวัติ
+            </h3>
+
+            <div class="glow-card p-5 reveal pl-6 border-l-4 border-indigo-500">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="badge-pill badge-violet text-[10px] font-mono">International</span>
+                <span class="text-xs font-mono text-slate-400">2025</span>
+              </div>
+              <h4 class="text-base font-bold text-white">ASTI Feynman Challenge 2025</h4>
+              <p class="text-xs text-slate-300 mt-1">Mentor & Participant (Malaysia/Online) &mdash; โครงงาน <strong>XQuant</strong> เครื่องวัดความเข้มข้นสารเคมีผ่านสมาร์ทโฟน</p>
+            </div>
+
+            <div class="glow-card p-5 reveal pl-6 border-l-4 border-amber-500">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="badge-pill badge-amber text-[10px] font-mono">National</span>
+                <span class="text-xs font-mono text-slate-400">ระดับชาติ</span>
+              </div>
+              <h4 class="text-base font-bold text-white">เหรียญทองแดง &mdash; นักประดิษฐ์ สพฐ. (OBEC)</h4>
+              <p class="text-xs text-slate-300 mt-1">โครงงาน <strong>Smart Cap & Glasses</strong> หมวกและแว่นตาอัจฉริยะนำทางผู้พิการทางสายตา</p>
+            </div>
+
+            <div class="glow-card p-5 reveal pl-6 border-l-4 border-rose-500">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="badge-pill badge-slate text-[10px] font-mono">National Scholarship</span>
+                <span class="text-xs font-mono text-slate-400">ระดับชาติ</span>
+              </div>
+              <h4 class="text-base font-bold text-white">ทุนการศึกษาซีพี "คนเก่งนวัตกร"</h4>
+              <p class="text-xs text-slate-300 mt-1">คัดเลือกโดยเครือเจริญโภคภัณฑ์ (CP Group) ในฐานะเยาวชนผู้มีศักยภาพด้านนวัตกรรมและเทคโนโลยี</p>
+            </div>
+
+            <div class="glow-card p-5 reveal pl-6 border-l-4 border-sky-500">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <span class="badge-pill badge-cyan text-[10px] font-mono">Regional</span>
+                <span class="text-xs font-mono text-slate-400">ระดับภาค</span>
+              </div>
+              <h4 class="text-base font-bold text-white">รางวัลชมเชยอันดับ 1 &mdash; STEAMS Co-Creation</h4>
+              <p class="text-xs text-slate-300 mt-1">มหาวิทยาลัยเกษตรศาสตร์ &mdash; โครงงาน <strong>SBLT-CAS</strong> แพลตฟอร์ม AI วินิจฉัยโรค 7 ระบบ</p>
+            </div>
+          </div>
+
+          <!-- Right Column: Field Experience & Certs -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fas fa-stethoscope text-teal-400"></i> ประสบการณ์ภาคสนาม
+              </h3>
+
+              <div class="space-y-3">
+                <div class="glow-card p-4 reveal">
+                  <h4 class="font-bold text-white text-sm">Waeng Hospital Internship (10 วัน)</h4>
+                  <span class="text-[11px] font-mono text-teal-400 block mb-1">โรงพยาบาลแว้ง จ.นราธิวาส</span>
+                  <p class="text-xs text-slate-300">หมุนเวียนศึกษาในแผนก ER, แผนกรังสี (X-Ray), และห้องจ่ายยา เป็นแรงบันดาลใจในการพัฒนา Drug Advisor และ SBLT-CAS</p>
+                </div>
+
+                <div class="glow-card p-4 reveal">
+                  <h4 class="font-bold text-white text-sm">ผู้นำเยาวชนสร้างเสริมสุขภาพ (สสส.)</h4>
+                  <span class="text-[11px] font-mono text-emerald-400 block mb-1">Health Promotion Foundation</span>
+                  <p class="text-xs text-slate-300">แกนนำรณรงค์ต่อต้านบุหรี่ไฟฟ้าในชุมชนและสถานศึกษา ขับเคลื่อนสุขภาวะเยาวชนในพื้นที่</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-base font-bold text-white mb-3">Certifications</h3>
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                  <div class="font-semibold text-white">Medical AI</div>
+                  <span class="text-[10px] text-slate-500 font-mono">ThAIMed Initiative</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                  <div class="font-semibold text-white">Python Prog. 40 hrs</div>
+                  <span class="text-[10px] text-slate-500 font-mono">True Digital Park</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                  <div class="font-semibold text-white">AI for Workplace</div>
+                  <span class="text-[10px] text-slate-500 font-mono">Samsung Innovation</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800">
+                  <div class="font-semibold text-white">Social Issues</div>
+                  <span class="text-[10px] text-slate-500 font-mono">USAID & fhi360</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 8: Contact & Connect Coordinates -->
+    <section id="contact" class="py-20 relative bg-slate-950 border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          <div class="lg:col-span-7">
+            <span class="text-xs font-mono font-bold tracking-widest text-sky-400 uppercase bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Connect</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 leading-tight">
+              Let's Build Impactful Technology.
+            </h2>
+            <p class="text-slate-300 mt-4 text-sm sm:text-base leading-relaxed max-w-xl">
+              พร้อมนำทักษะด้าน System Architecture, ปัญญาประดิษฐ์ (AI), และฮาร์ดแวร์ IoT ไปต่อยอดโครงการที่มีคุณค่า สนใจร่วมงานหรือแลกเปลี่ยนความคิดเห็น ติดต่อได้ตลอดเวลาครับ
             </p>
 
-            <div
-                class="reveal active mt-12 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 max-w-lg mx-auto transform hover:scale-105 transition-transform duration-300">
-                <p class="text-base md:text-lg text-slate-200 italic font-light">
-                    "To be a hero is not to fight, but to create solutions that make life better for everyone."
-                </p>
+            <!-- Social Links -->
+            <div class="flex items-center gap-3 mt-6">
+              <a href="https://github.com/muaxzinn" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel hover:bg-slate-800 text-white flex items-center justify-center text-lg transition-transform hover:scale-110 shadow-sm" title="GitHub Profile">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.facebook.com/share/1Y438VRbRE/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel hover:bg-[#1877F2] text-white flex items-center justify-center text-lg transition-transform hover:scale-110 shadow-sm" title="Facebook Profile">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/mang_agm/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-panel hover:bg-gradient-to-tr hover:from-amber-500 hover:to-pink-600 text-white flex items-center justify-center text-lg transition-transform hover:scale-110 shadow-sm" title="Instagram Profile">
+                <i class="fab fa-instagram"></i>
+              </a>
             </div>
+          </div>
 
-            <div class="reveal active mt-20 flex flex-col sm:flex-row gap-4 w-full sm:w-auto px-4">
-                <a href="#flagship"
-                    class="px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white font-bold transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 transform hover:-translate-y-1">
-                    Explore My Work <i class="fas fa-arrow-down animate-bounce"></i>
-                </a>
-                <a href="https://github.com/muaxzinn" target="_blank"
-                    class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold backdrop-blur-md border border-white/20 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
-                    <i class="fab fa-github text-xl"></i> GitHub Profile
-                </a>
+          <!-- Contact Coordinates Card -->
+          <div class="lg:col-span-5">
+            <div class="glow-card p-6 space-y-4">
+              <h3 class="text-base font-bold text-white border-b border-slate-800 pb-3">Contact Coordinates</h3>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center text-sm">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div>
+                    <div class="text-[10px] text-slate-400 font-mono">PHONE</div>
+                    <div class="text-xs sm:text-sm font-semibold text-white font-mono">091-725-7551</div>
+                  </div>
+                </div>
+                <button onclick="copyToClipboard('091-725-7551', 'คัดลอกเบอร์โทรแล้ว!')" class="p-1.5 rounded-lg bg-slate-800 hover:bg-sky-500 text-slate-400 hover:text-white transition-colors" title="Copy Phone">
+                  <i class="fas fa-copy text-xs"></i>
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                <div class="flex items-center gap-3 overflow-hidden">
+                  <div class="w-8 h-8 rounded-lg bg-teal-500/10 text-teal-400 flex items-center justify-center text-sm flex-shrink-0">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="truncate">
+                    <div class="text-[10px] text-slate-400 font-mono">EMAIL</div>
+                    <div class="text-xs font-semibold text-white font-mono truncate">firman.awea@gmail.com</div>
+                  </div>
+                </div>
+                <button onclick="copyToClipboard('firman.awea@gmail.com', 'คัดลอกอีเมลแล้ว!')" class="p-1.5 rounded-lg bg-slate-800 hover:bg-teal-500 text-slate-400 hover:text-white transition-colors flex-shrink-0" title="Copy Email">
+                  <i class="fas fa-copy text-xs"></i>
+                </button>
+              </div>
+
+              <a href="mailto:firman.awea@gmail.com?subject=Inquiry%20to%20Firman%20Awea" class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-xs text-center shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2">
+                <i class="fas fa-paper-plane"></i> ส่งอีเมลหา Firman
+              </a>
             </div>
+          </div>
+
         </div>
-
-        <!-- Scroll Indicator -->
-
-    </header>
-
-    <!-- Core Philosophy (Improved Layout & Dark Mode) -->
-    <section id="about"
-        class="min-h-screen py-12 md:py-16 flex flex-col justify-center bg-white dark:bg-[#0B1120] relative overflow-hidden transition-colors duration-300">
-        <!-- Background Pattern -->
-        <div
-            class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 dark:bg-slate-900/50 skew-x-12 transform translate-x-20 -z-0 opacity-50">
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">The "AI-Augmented" Workflow
-                </h2>
-                <p class="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto text-lg">
-                    ผมไม่ได้แค่เขียนโค้ด แต่ผม "ออกแบบระบบ" โดยใช้ AI
-                    เป็นเครื่องมือทุ่นแรงเพื่อให้ได้ผลลัพธ์ที่ซับซ้อนในเวลาอันสั้น
-                </p>
-            </div>
-
-            <!-- Workflow Grid - Fixed Alignment -->
-            <div class="grid grid-cols-1 md:grid-cols-[1fr,auto,1fr,auto,1fr] gap-5 md:gap-5 items-center reveal">
-
-                <!-- Step 1 -->
-                <div class="workflow-step premium-card bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-primary flex items-center justify-center text-3xl mb-4 shadow-inner">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">1. Logic & Architecture</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        วิเคราะห์ปัญหา (Scientific/Medical) แล้วแปลงเป็นตรรกะระบบ (Flowchart/Data Structure)
-                        โดยไม่อิงกับภาษาโปรแกรม
-                    </p>
-                </div>
-
-                <!-- Arrow 1 -->
-                <div class="workflow-arrow py-4 md:py-0 flex justify-center items-center">
-                    <i class="fas fa-arrow-down md:hidden"></i>
-                    <i class="fas fa-arrow-right hidden md:block"></i>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="workflow-step premium-card bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center text-3xl mb-4 shadow-inner">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">2. AI Synthesis</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        ใช้ Prompt Engineering สั่ง AI สร้างโครงสร้าง Code (HTML, JS, Python) ตาม Logic ที่วางไว้
-                        ลดเวลาเขียน Boilerplate
-                    </p>
-                </div>
-
-                <!-- Arrow 2 -->
-                <div class="workflow-arrow py-4 md:py-0 flex justify-center items-center">
-                    <i class="fas fa-arrow-down md:hidden"></i>
-                    <i class="fas fa-arrow-right hidden md:block"></i>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="workflow-step premium-card bg-white dark:bg-slate-800 rounded-2xl p-6 md:p-8 shadow-sm">
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 flex items-center justify-center text-3xl mb-4 shadow-inner">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3. Integrate & Adapt</h3>
-                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        อ่านและแก้ไขโค้ด (Debugging) เชื่อมต่อ API และปรับแต่ง UI ให้เหมาะสมกับการใช้งานจริงจนสมบูรณ์
-                    </p>
-                </div>
-            </div>
-
-            <!-- Personal Info Card 
-            <div class="mt-16 premium-card bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-6 md:p-10 reveal">
-                <div class="flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-shrink-0">
-                        <div
-                            class="w-24 h-24 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center shadow-inner border-4 border-slate-100 dark:border-slate-600 overflow-hidden">
-                            <img src="image.png" alt="muaxzinn" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                    <div class="flex-1 text-center md:text-left">
-                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
-                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Personal Info</h3>
-                            <span
-                                class="bg-primary/10 dark:bg-primary/20 text-primary dark:text-sky-300 text-xs px-2 py-1 rounded-full font-bold border border-primary/20">GPAX:
-                                3.95</span>
-                        </div>
-                        <p class="text-slate-600 dark:text-slate-300 mb-4">
-                            ศึกษาอยู่ที่ <strong>โรงเรียนเวียงสุวรรณวิทยาคม</strong> แผนการเรียนวิทย์-คณิต |
-                            มุ่งเน้นนวัตกรรมสุขภาพ (Health Tech Innovation)
-                        </p>
-                        <div
-                            class="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-slate-500 dark:text-slate-400">
-                            <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-red-400"></i>
-                                Narathiwat, Thailand</span>
-                            <span class="flex items-center gap-2"><i class="fas fa-birthday-cake text-pink-400"></i> 18
-                                Years Old</span>
-                            <span class="flex items-center gap-2"><i class="fas fa-envelope text-blue-400"></i>
-                                muaxzinn@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
-        </div>
+      </div>
     </section>
 
-    <!-- Flagship Projects (Dark Mode Ready) -->
-    <section id="flagship" class="py-12 md:py-16 bg-slate-50 dark:bg-[#0f172a] transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 reveal">
-                <div class="text-center md:text-left">
-                    <span class="text-primary font-bold tracking-wider uppercase text-sm">Masterpiece Collection</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-2">Flagship Projects
-                    </h2>
-                </div>
-                <p class="text-slate-500 dark:text-slate-400 mt-4 md:mt-0 text-center md:text-right max-w-md">
-                    นวัตกรรมที่บูรณาการความรู้ทางการแพทย์และวิทยาศาสตร์เข้ากับเทคโนโลยี AI
-                </p>
-            </div>
+  </main>
 
-            <div class="space-y-10 md:space-y-14">
-                <!-- Project 1: SBLT-CAS -->
-                <div class="premium-card group bg-white dark:bg-slate-800 rounded-3xl flex flex-col lg:flex-row reveal">
-                    <div
-                        class="lg:w-5/12 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-slate-700 dark:to-slate-800 p-8 md:p-10 flex flex-col justify-center items-center relative overflow-hidden">
-                        <div
-                            class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/medical-icons.png')]">
-                        </div>
-                        <i
-                            class="fas fa-heart-pulse text-7xl md:text-8xl text-primary drop-shadow-lg mb-6 transform group-hover:scale-110 transition-transform duration-500"></i>
-                        <h3
-                            class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white text-center relative z-10">
-                            SBLT-CAS</h3>
-                        <div
-                            class="mt-4 px-4 py-1 bg-white/60 dark:bg-slate-900/60 backdrop-blur rounded-full text-slate-600 dark:text-slate-300 text-sm font-semibold border border-white/40 dark:border-slate-600 shadow-sm relative z-10">
-                            Medical AI Platform
-                        </div>
-                    </div>
+  <!-- Footer -->
+  <footer class="py-6 bg-slate-950 border-t border-slate-900 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; 2026 Firman Awea (@muaxzinn). Crafted with Pure Modular Vanilla Web & Three.js.</p>
+      <a href="#home" class="hover:text-sky-400 transition-colors">Top of page <i class="fas fa-arrow-up ml-1"></i></a>
+    </div>
+  </footer>
 
-                    <div class="lg:w-7/12 p-6 md:p-12 flex flex-col justify-between">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-bold uppercase tracking-wide">Web
-                                    AI</span>
-                                <span
-                                    class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-xs font-bold uppercase tracking-wide">TensorFlow.js</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">All-in-One Medical
-                                Classification and Segmentation</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                                แพลตฟอร์ม AI วินิจฉัยโรค 7 ระบบในที่เดียว (ผิวหนัง, ตา, ปอด, สมอง) ทำงานบนเบราว์เซอร์
-                                100% รักษาความเป็นส่วนตัวผู้ป่วย
-                            </p>
-
-                            <div
-                                class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-xl border border-slate-200 dark:border-slate-600 mb-8">
-                                <h4
-                                    class="font-semibold text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2">
-                                    <i class="fas fa-cogs text-slate-400"></i> System Logic
-                                </h4>
-                                <p class="text-sm text-slate-600 dark:text-slate-300">
-                                    ใช้ <strong>Router Model (93% Accuracy)</strong>
-                                    เป็นด่านหน้าคัดแยกประเภทภาพอัตโนมัติ ก่อนส่งไปยังโมเดลเฉพาะทาง ทำให้แพทย์ใช้งานง่าย
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-700 pt-6">
-                            <div
-                                class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold bg-amber-50 dark:bg-amber-900/20 px-4 py-2 rounded-lg text-sm md:text-base w-full sm:w-auto justify-center sm:justify-start">
-                                <i class="fas fa-award text-lg"></i>
-                                <span>Regional Commendation Award</span>
-                            </div>
-                            <a href="https://muaxzinn.github.io/SBLT-CAS/" target="_blank"
-                                class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 dark:bg-primary text-white hover:bg-primary dark:hover:bg-sky-600 transition-colors font-semibold shadow-lg hover:shadow-primary/30 text-center flex items-center justify-center gap-2">
-                                Launch Platform <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: XQuant -->
-                <div
-                    class="premium-card group bg-white dark:bg-slate-800 rounded-3xl flex flex-col lg:flex-row-reverse reveal">
-                    <div
-                        class="lg:w-5/12 bg-gradient-to-br from-teal-50 to-emerald-100 dark:from-slate-700 dark:to-slate-800 p-8 md:p-10 flex flex-col justify-center items-center relative overflow-hidden">
-                        <i
-                            class="fas fa-flask text-7xl md:text-8xl text-teal-500 drop-shadow-lg mb-6 transform group-hover:rotate-12 transition-transform duration-500"></i>
-                        <h3
-                            class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white text-center relative z-10">
-                            XQuant</h3>
-                        <div
-                            class="mt-4 px-4 py-1 bg-white/60 dark:bg-slate-900/60 backdrop-blur rounded-full text-slate-600 dark:text-slate-300 text-sm font-semibold border border-white/40 dark:border-slate-600 shadow-sm relative z-10">
-                            Smart Photometer
-                        </div>
-                    </div>
-
-                    <div class="lg:w-7/12 p-6 md:p-12 flex flex-col justify-between">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full text-xs font-bold uppercase tracking-wide">Image
-                                    Processing</span>
-                                <span
-                                    class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-xs font-bold uppercase tracking-wide">Machine
-                                    Learning</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Colorimetric Analysis
-                                Tool</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                                เปลี่ยนสมาร์ทโฟนให้เป็นเครื่องวัดความเข้มข้นสารละลาย (Spectrophotometer) ราคาประหยัด
-                                แม่นยำเทียบเท่าห้องแล็บ
-                            </p>
-
-                            <div
-                                class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-xl border border-slate-200 dark:border-slate-600 mb-8">
-                                <h4
-                                    class="font-semibold text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-2">
-                                    <i class="fas fa-calculator text-slate-400"></i> The Algorithm
-                                </h4>
-                                <p class="text-sm text-slate-600 dark:text-slate-300">
-                                    แปลงภาพเป็นค่า <strong>RGB</strong> → คำนวณผ่านกฎ <strong>Beer-Lambert Law</strong>
-                                    → ใช้ <strong>ML</strong> ชดเชยค่า Error จากแสง
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-700 pt-6">
-                            <div
-                                class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold bg-indigo-50 dark:bg-indigo-900/20 px-4 py-2 rounded-lg text-sm md:text-base w-full sm:w-auto justify-center sm:justify-start">
-                                <i class="fas fa-globe-asia text-lg"></i>
-                                <span>ASTI Feynman 2025 (Malaysia)</span>
-                            </div>
-                            <a href="https://muaxzinn.github.io/xquantcolorimetric/" target="_blank"
-                                class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 dark:bg-primary text-white hover:bg-primary dark:hover:bg-sky-600 transition-colors font-semibold shadow-lg hover:shadow-primary/30 text-center flex items-center justify-center gap-2">
-                                View Project <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 & 4 (Combined style for brevity, follow same pattern) -->
-                <!-- You can replicate the structure above for Smart Glasses and Drug Advisor, applying dark: classes similarly -->
-                <div class="premium-card group bg-white dark:bg-slate-800 rounded-3xl flex flex-col lg:flex-row reveal">
-                    <div
-                        class="lg:w-5/12 bg-gradient-to-br from-gray-100 to-slate-200 dark:from-slate-700 dark:to-slate-800 p-8 md:p-10 flex flex-col justify-center items-center relative overflow-hidden">
-                        <i
-                            class="fas fa-glasses text-7xl md:text-8xl text-slate-600 dark:text-slate-400 drop-shadow-lg mb-6 transform group-hover:-translate-y-2 transition-transform duration-500"></i>
-                        <h3
-                            class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white text-center relative z-10">
-                            Smart Cap/Glasses</h3>
-                        <div
-                            class="mt-4 px-4 py-1 bg-white/60 dark:bg-slate-900/60 backdrop-blur rounded-full text-slate-600 dark:text-slate-300 text-sm font-semibold border border-white/40 dark:border-slate-600 shadow-sm relative z-10">
-                            Assistive IoT
-                        </div>
-                    </div>
-                    <div class="lg:w-7/12 p-6 md:p-12 flex flex-col justify-between">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-3 py-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-xs font-bold uppercase tracking-wide">C/C++</span>
-                                <span
-                                    class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-xs font-bold uppercase tracking-wide">IoT/Arduino</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">IoT for the Visually
-                                Impaired</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                                อุปกรณ์สวมใส่ช่วยเหลือคนตาบอด แจ้งเตือนสิ่งกีดขวางด้วยเสียง AI และนำทางด้วย GPS
-                            </p>
-                        </div>
-                        <div
-                            class="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-700 pt-6">
-                            <div class="flex flex-col items-start w-full sm:w-auto">
-                                <div
-                                    class="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold mb-1 text-sm">
-                                    <i class="fas fa-medal"></i> Bronze Medal (National)
-                                </div>
-                                <div
-                                    class="flex items-center gap-2 text-yellow-600 dark:text-yellow-400 font-semibold text-sm">
-                                    <i class="fas fa-medal"></i> Gold Medal (Regional)
-                                </div>
-                            </div>
-                            <div
-                                class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500 font-semibold text-center cursor-not-allowed border border-slate-200 dark:border-slate-600">
-                                Hardware Project
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Drug Advisor -->
-                <div
-                    class="premium-card group bg-white dark:bg-slate-800 rounded-3xl flex flex-col lg:flex-row-reverse reveal">
-                    <div
-                        class="lg:w-5/12 bg-gradient-to-br from-rose-50 to-pink-100 dark:from-slate-700 dark:to-slate-800 p-8 md:p-10 flex flex-col justify-center items-center relative overflow-hidden">
-                        <i
-                            class="fas fa-pills text-7xl md:text-8xl text-rose-400 drop-shadow-lg mb-6 transform group-hover:rotate-180 transition-transform duration-700"></i>
-                        <h3
-                            class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white text-center relative z-10">
-                            Drug Advisor</h3>
-                        <div
-                            class="mt-4 px-4 py-1 bg-white/60 dark:bg-slate-900/60 backdrop-blur rounded-full text-slate-600 dark:text-slate-300 text-sm font-semibold border border-white/40 dark:border-slate-600 shadow-sm relative z-10">
-                            AI Translator
-                        </div>
-                    </div>
-                    <div class="lg:w-7/12 p-6 md:p-12 flex flex-col justify-between">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span
-                                    class="px-3 py-1 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full text-xs font-bold uppercase tracking-wide">API
-                                    Integration</span>
-                                <span
-                                    class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-bold uppercase tracking-wide">NLP
-                                    AI</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Smart Drug & Symptom
-                                Search</h3>
-                            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-                                ระบบค้นหาข้อมูลยาที่แปลศัพท์แพทย์ยากๆ เป็นภาษาชาวบ้าน พัฒนาจากปัญหาจริงในโรงพยาบาลชุมชน
-                            </p>
-                        </div>
-                        <div
-                            class="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-700 pt-6">
-                            <div
-                                class="flex items-center gap-2 text-slate-500 dark:text-slate-400 font-semibold bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-lg text-sm w-full sm:w-auto justify-center">
-                                <i class="fas fa-hospital-user"></i>
-                                <span>Inspired by Hospital Internship</span>
-                            </div>
-                            <a href="https://ai-drag-and-symptom-advisor.netlify.app" target="_blank"
-                                class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 dark:bg-primary text-white hover:bg-primary dark:hover:bg-sky-600 transition-colors font-semibold shadow-lg hover:shadow-primary/30 text-center flex items-center justify-center gap-2">
-                                Use App <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Web Development Showcase (With Filter & Dark Mode) -->
-    <section id="web-showcase" class="py-12 md:py-16 bg-white dark:bg-[#0B1120] transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-10 reveal">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-white border-l-8 border-primary pl-4">Web
-                    Showcase</h2>
-
-                <!-- Filter Buttons -->
-                <div class="flex flex-wrap justify-center gap-2 mt-6 md:mt-0" id="portfolio-filters">
-                    <button
-                        class="filter-btn active px-4 py-1.5 rounded-full text-sm font-semibold bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white transition-colors border border-slate-200 dark:border-slate-600"
-                        data-filter="all">All</button>
-                    <button
-                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-600"
-                        data-filter="science">Science</button>
-                    <button
-                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-600"
-                        data-filter="health">Health</button>
-                    <button
-                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-600"
-                        data-filter="social">Social</button>
-                    <button
-                        class="filter-btn px-4 py-1.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-600"
-                        data-filter="game">Interactive</button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="portfolio-grid">
-
-                <!-- Science 1 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="science">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-900/30 text-orange-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-vial"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/Find-vitamin-C-with-iodine/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Find Vitamin C</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Web simulation for Iodine
-                        Titration. Counts drops and calculates concentration automatically.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Simulation</span>
-                        <span class="tech-pill">Data Export</span>
-                    </div>
-                </div>
-
-                <!-- Science 2 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="science">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-purple-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/Percent-Decolorization-RGB-Colorimetric-/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">RGB Decolorization</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Pixel-by-pixel RGB analysis
-                        tool to measure chemical reaction rates via color fading.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Canvas API</span>
-                        <span class="tech-pill">Algorithms</span>
-                    </div>
-                </div>
-
-                <!-- Science 3 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="science">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-red-100 dark:bg-red-900/30 text-red-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-droplet"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/Color2Iron/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Color2Iron</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Iron level analysis tool using
-                        color matching logic against standard curves.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Color Logic</span>
-                        <span class="tech-pill">Chemistry</span>
-                    </div>
-                </div>
-
-                <!-- Health 1 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="health">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-green-100 dark:bg-green-900/30 text-green-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-apple-alt"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/smart-calories-bmi-analyzer/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Smart BMI & Calories</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Calculates BMR/TDEE using
-                        Mifflin-St Jeor equation for nutrition planning.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Math Logic</span>
-                        <span class="tech-pill">Health</span>
-                    </div>
-                </div>
-
-                <!-- Social 1 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="social">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/floodhelpingkonthai/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Flood Helping Konthai</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Information system for flood
-                        relief, emergency contacts, and donation points.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Social Impact</span>
-                        <span class="tech-pill">Info System</span>
-                    </div>
-                </div>
-
-                <!-- Social 2 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="social">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/30 text-teal-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/Buketa-travel/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Buketa Travel</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Community tourism promotion
-                        website with responsive design and multimedia.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Responsive</span>
-                        <span class="tech-pill">Community</span>
-                    </div>
-                </div>
-
-                <!-- Game 1 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="game">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/wiang-4x4-gameshow/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Wiang 4x4 Gameshow</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Math game application with
-                        random logic, timer, and real-time scoring.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Game Logic</span>
-                        <span class="tech-pill">Edutainment</span>
-                    </div>
-                </div>
-
-                <!-- Game 2 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="game">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-pink-900/30 text-pink-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-puzzle-piece"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/eneemeepirut/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Enee Mee Pirut</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Interactive mini-game using
-                        JavaScript event handling.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Interactive</span>
-                        <span class="tech-pill">JS Events</span>
-                    </div>
-                </div>
-
-                <!-- Util 1 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="science">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 flex items-center justify-center text-xl">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/tgat1image/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">TGAT1 Image Tools</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Front-end image processing tool
-                        for resizing and layout preparation.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">Image Tools</span>
-                        <span class="tech-pill">Utility</span>
-                    </div>
-                </div>
-
-                <!-- Design 1 -->
-                <div class="premium-card reveal bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col h-full"
-                    data-category="social">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500 flex items-center justify-center text-xl">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                        <a href="https://muaxzinn.github.io/muaxzinn-port-no-code/" target="_blank"
-                            class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 hover:bg-primary hover:text-white flex items-center justify-center transition-colors text-slate-400">
-                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                        </a>
-                    </div>
-                    <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">No-Code Portfolio</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-grow">Demonstrating adaptability
-                        using Low-Code/No-Code tools.</p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="tech-pill">No-Code</span>
-                        <span class="tech-pill">Design</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Awards & Certifications (Timeline Style) -->
-    <section id="awards"
-        class="py-12 md:py-16 bg-slate-50 dark:bg-[#0f172a] relative overflow-hidden transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14">
-
-                <!-- Awards Column -->
-                <div class="reveal">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
-                        <span
-                            class="w-10 h-10 rounded-lg bg-yellow-100 dark:bg-yellow-900/20 text-yellow-500 flex items-center justify-center text-xl"><i
-                                class="fas fa-trophy"></i></span>
-                        Awards
-                    </h2>
-
-
-                    <div class="space-y-6 border-l-2 border-slate-200 dark:border-slate-700 pl-8 ml-4">
-                        <!-- Award Item -->
-                        <div class="relative group">
-                            <div
-                                class="absolute -left-[41px] top-1 w-5 h-5 bg-indigo-500 rounded-full border-4 border-white dark:border-slate-800 shadow-sm group-hover:scale-110 transition-transform">
-                            </div>
-                            <div class="premium-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg">
-                                <span
-                                    class="text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30 px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wide">International</span>
-                                <h3 class="font-bold text-lg text-slate-800 dark:text-white">ASTI Feynman Challenge
-                                    (AFC) 2025</h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Mentor & Participant
-                                    (Malaysia/Online) - Project XQuant</p>
-                            </div>
-                        </div>
-                        <!-- Award Item -->
-                        <div class="relative group">
-                            <div
-                                class="absolute -left-[41px] top-1 w-5 h-5 bg-red-500 rounded-full border-4 border-white dark:border-slate-800 shadow-sm group-hover:scale-110 transition-transform">
-                            </div>
-                            <div class="premium-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg">
-                                <span
-                                    class="text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wide">National</span>
-                                <h3 class="font-bold text-lg text-slate-800 dark:text-white">Bronze Medal - OBEC Young
-                                    Inventor</h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Project: Smart Cap for the
-                                    Blind</p>
-                            </div>
-                        </div>
-                        <!-- Award Item -->
-                        <div class="relative group">
-                            <div
-                                class="absolute -left-[41px] top-1 w-5 h-5 bg-red-500 rounded-full border-4 border-white dark:border-slate-800 shadow-sm group-hover:scale-110 transition-transform">
-                            </div>
-                            <div class="premium-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg">
-                                <span
-                                    class="text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wide">National</span>
-                                <h3 class="font-bold text-lg text-slate-800 dark:text-white">CP Scholarship "Innovator"
-                                    </h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Charoen Pokphand Group</p>
-                            </div>
-                        </div>
-                        <!-- Award Item -->
-                        <div class="relative group">
-                            <div
-                                class="absolute -left-[41px] top-1 w-5 h-5 bg-blue-500 rounded-full border-4 border-white dark:border-slate-800 shadow-sm group-hover:scale-110 transition-transform">
-                            </div>
-                            <div class="premium-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg">
-                                <span
-                                    class="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wide">Regional</span>
-                                <h3 class="font-bold text-lg text-slate-800 dark:text-white">Commendation 1 - STEAMS
-                                    Co-Creation</h3>
-                                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Kasetsart University -
-                                    Project SBLT-CAS</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificates & Experience -->
-                <div class="reveal delay-200">
-                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
-                        <span
-                            class="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-900/20 text-teal-500 flex items-center justify-center text-xl"><i
-                                class="fas fa-certificate"></i></span>
-                        Certificates & Exp
-                    </h2>
-
-                    <div class="mb-10">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div
-                                class="premium-card p-4 bg-white dark:bg-slate-800 rounded-xl flex items-center gap-3 shadow-sm hover:border-primary/50 transition-colors">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <div>
-                                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">Medical AI</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">ThAIMed Initiative</p>
-                                </div>
-                            </div>
-                            <div
-                                class="premium-card p-4 bg-white dark:bg-slate-800 rounded-xl flex items-center gap-3 shadow-sm hover:border-primary/50 transition-colors">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <div>
-                                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">Python Prog.</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">True Digital (40 hrs)</p>
-                                </div>
-                            </div>
-                            <div
-                                class="premium-card p-4 bg-white dark:bg-slate-800 rounded-xl flex items-center gap-3 shadow-sm hover:border-primary/50 transition-colors">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <div>
-                                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">AI Workplace</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">Samsung</p>
-                                </div>
-                            </div>
-                            <div
-                                class="premium-card p-4 bg-white dark:bg-slate-800 rounded-xl flex items-center gap-3 shadow-sm hover:border-primary/50 transition-colors">
-                                <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                <div>
-                                    <h4 class="font-bold text-slate-800 dark:text-white text-sm">Social Issues</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400">USAID / fhi360</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3
-                            class="text-lg font-bold text-slate-800 dark:text-white mb-6 border-b border-slate-200 dark:border-slate-700 pb-2">
-                            Key Experience</h3>
-                        <div class="space-y-4">
-                            <div
-                                class="premium-card bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm flex gap-4 items-start">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-rose-100 dark:bg-rose-900/20 flex items-center justify-center text-rose-500 flex-shrink-0">
-                                    <i class="fas fa-hospital"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-800 dark:text-white">Hospital Internship</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase">Waeng
-                                        Hospital (10 Days)</p>
-                                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Rotated through ER,
-                                        X-ray, Pharmacy. Sparked the idea for AI Drug Advisor.</p>
-                                </div>
-                            </div>
-
-                            <div
-                                class="premium-card bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm flex gap-4 items-start">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-orange-500 flex-shrink-0">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-slate-800 dark:text-white">Youth Leader</h4>
-                                    <p class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase">Health
-                                        Promotion Foundation</p>
-                                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-2">Anti-E-cigarette campaign
-                                        leader.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Contact -->
-    <footer id="contact" class="bg-slate-900 dark:bg-[#050914] text-white py-20 relative overflow-hidden">
-        <!-- Decoration -->
-        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-medical to-blue-500"></div>
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <div>
-                    <h2
-                        class="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
-                        Let's Create Solutions</h2>
-                    <p class="text-slate-400 mb-10 max-w-md text-lg leading-relaxed">
-                        ผมพร้อมที่จะนำทักษะด้าน AI และ System Design ไปต่อยอดนวัตกรรมใหม่ๆ
-                        สนใจร่วมงานหรือแลกเปลี่ยนความคิดเห็น ติดต่อได้เลยครับ
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="https://github.com/muaxzinn" target="_blank"
-                            class="group w-12 h-12 rounded-full bg-slate-800 dark:bg-slate-800/50 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-all duration-300 border border-slate-700">
-                            <i class="fab fa-github text-xl group-hover:scale-110 transition-transform"></i>
-                        </a>
-                        <a href="https://www.facebook.com/share/1Y438VRbRE/" target="_blank"
-                            class="group w-12 h-12 rounded-full bg-slate-800 dark:bg-slate-800/50 flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-all duration-300 border border-slate-700">
-                            <i class="fab fa-facebook-f text-xl group-hover:scale-110 transition-transform"></i>
-                        </a>
-                        <a href="https://www.instagram.com/mang_agm/" target="_blank"
-                            class="group w-12 h-12 rounded-full bg-slate-800 dark:bg-slate-800/50 flex items-center justify-center hover:bg-gradient-to-tr from-[#f09433] to-[#bc1888] hover:text-white transition-all duration-300 border border-slate-700">
-                            <i class="fab fa-instagram text-xl group-hover:scale-110 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-slate-800/50 dark:bg-slate-800/20 p-8 rounded-3xl border border-slate-700 backdrop-blur-sm">
-                    <h3 class="text-xl font-bold mb-6 border-b border-slate-700 pb-4 text-slate-200">Contact Info</h3>
-                    <ul class="space-y-6 text-slate-300">
-
-                        <li class="flex items-center gap-4 group">
-                            <div
-                                class="w-10 h-10 rounded-full bg-slate-700 dark:bg-slate-900 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <span>091-725-7551</span>
-                        </li>
-                        <li class="flex items-center gap-4 group">
-                            <div
-                                class="w-10 h-10 rounded-full bg-slate-700 dark:bg-slate-900 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <a href="mailto: muaxzinn00374345@gmail.com"
-                                class="hover:text-white transition-colors">muaxzinn00374345@gmail.com</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div
-                class="mt-20 pt-8 border-t border-slate-800 dark:border-slate-800 text-center text-slate-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-                <p>&copy; 2025 muaxzinn. All rights reserved.</p>
-                <p class="flex items-center gap-2">Designed with <i class="fas fa-heart text-red-500 animate-pulse"></i>
-                    & AI Logic</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        // --- 1. Mobile Menu Toggle ---
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // --- 2. Dark Mode Logic ---
-        const themeToggleBtns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
-        const darkIcons = [document.getElementById('theme-toggle-dark-icon'), document.getElementById('theme-toggle-dark-icon-mobile')];
-        const lightIcons = [document.getElementById('theme-toggle-light-icon'), document.getElementById('theme-toggle-light-icon-mobile')];
-
-        // Sync icons with current theme state
-        function updateThemeIcons() {
-            const isDark = document.documentElement.classList.contains('dark');
-            darkIcons.forEach(icon => icon.classList.toggle('hidden', isDark));
-            lightIcons.forEach(icon => icon.classList.toggle('hidden', !isDark));
-        }
-
-        // Initialize icons on load
-        updateThemeIcons();
-
-        // Toggle logic
-        themeToggleBtns.forEach(btn => {
-            if (!btn) return;
-            btn.addEventListener('click', function () {
-                // Toggle local state
-                if (localStorage.getItem('color-theme')) {
-                    if (localStorage.getItem('color-theme') === 'light') {
-                        document.documentElement.classList.add('dark');
-                        localStorage.setItem('color-theme', 'dark');
-                    } else {
-                        document.documentElement.classList.remove('dark');
-                        localStorage.setItem('color-theme', 'light');
-                    }
-                } else {
-                    if (document.documentElement.classList.contains('dark')) {
-                        document.documentElement.classList.remove('dark');
-                        localStorage.setItem('color-theme', 'light');
-                    } else {
-                        document.documentElement.classList.add('dark');
-                        localStorage.setItem('color-theme', 'dark');
-                    }
-                }
-                updateThemeIcons();
-            });
-        });
-
-        // --- 3. Smooth Scroll & Navbar Transparency ---
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                menu.classList.add('hidden'); // Close mobile menu
-                const target = document.querySelector(this.getAttribute('href'));
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            });
-        });
-
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
-        });
-
-        // --- 4. Scroll Reveal Animation ---
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-
-        // --- 5. Portfolio Filter Logic ---
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.premium-card[data-category]');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-slate-100', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white');
-                    b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-400');
-                });
-
-                // Add active class
-                btn.classList.add('active', 'bg-slate-100', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white');
-                btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-400');
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                projectCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filterValue === 'all' || category === filterValue) {
-                        card.parentElement.style.display = 'block'; // Ensure parent wrapper is visible
-                        card.style.display = 'flex';
-                        setTimeout(() => {
-                            card.classList.remove('opacity-0', 'scale-95');
-                            card.classList.add('opacity-100', 'scale-100');
-                        }, 10);
-                    } else {
-                        card.classList.add('opacity-0', 'scale-95');
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                            card.parentElement.style.display = 'none'; // Hide wrapper to fix layout gaps
-                        }, 300);
-                    }
-                });
-            });
-        });
-
-        // Init Filter Style
-        const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
-        if (allBtn) {
-            allBtn.classList.add('bg-slate-100', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white');
-            allBtn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-400');
-        }
-
-    </script>
+  <!-- Modular JavaScript Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/card-tilt-3d.js"></script>
+  <script src="js/projects-data.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/project-filter.js"></script>
+  <script src="js/project-modal.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
