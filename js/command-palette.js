@@ -25,12 +25,12 @@ class CommandPalette {
     this.items = [
       // Sections
       { title: 'Hero & 3D Holographic Core', desc: 'Jump to 3D interactive core and intro', url: '#home', type: 'Section' },
-      { title: 'The AI-Augmented Workflow', desc: 'Jump to 3-phase methodology bento grid', url: '#philosophy', type: 'Section' },
-      { title: 'Flagship Innovations', desc: 'SBLT-CAS, minipos v2, XQuant, hongsamud v2', url: '#flagship', type: 'Section' },
+      { title: 'The Engineering Methodology', desc: 'Jump to 3-phase methodology bento grid', url: '#philosophy', type: 'Section' },
+      { title: 'Flagship Innovations', desc: 'SBLT-CAS, Drug Advisor, minipos v2, XQuant, hongsamud v2', url: '#flagship', type: 'Section' },
       { title: 'Skills & Technical Toolchain', desc: 'AI, Web, IoT, and System competency matrix', url: '#skills', type: 'Section' },
-      { title: 'Interactive AI Agent Terminal', desc: 'CLI simulation console & agent commands', url: '#terminal', type: 'Interactive' },
-      { title: 'Extended Showcase & Sandbox', desc: 'Browse all 25+ projects with live filter', url: '#showcase', type: 'Section' },
-      { title: 'Awards, Honors & Journey', desc: 'ASTI Feynman 2025, OBEC Medal, CP Scholarship', url: '#awards', type: 'Section' },
+      { title: 'Interactive Developer Terminal', desc: 'CLI simulation console & diagnostic benchmarks', url: '#terminal', type: 'Interactive' },
+      { title: 'Extended Showcase & Sandbox', desc: 'Browse all curated projects with live filter', url: '#showcase', type: 'Section' },
+      { title: 'Awards, Honors & Journey', desc: 'ASTI Feynman 2025, National Inventor Medal, CP Scholarship', url: '#awards', type: 'Section' },
       { title: 'Contact Coordinates', desc: 'Phone, email, GitHub, and message form', url: '#contact', type: 'Section' }
     ];
 

@@ -114,7 +114,7 @@ const PROJECTS_DATA = [
     shortDesc: 'อุปกรณ์สวมใส่ช่วยเหลือผู้พิการทางสายตา ตรวจจับสิ่งกีดขวาง แจ้งเตือนด้วยเสียง และระบุพิกัดฉุกเฉินผ่านดาวเทียม GPS',
     fullDesc: 'หมวกและแว่นตาอัจฉริยะช่วยนำทางสำหรับผู้มีภาวะบกพร่องทางการมองเห็น ใช้เซนเซอร์คลื่นเสียงอัลตราโซนิกตรวจจับสิ่งกีดขวางทั้งระดับศีรษะและทางเดิน ส่งเสียงแจ้งเตือนผ่านโมดูลเสียง และส่งพิกัดฉุกเฉินผ่านระบบดาวเทียม GPS',
     architecture: 'ไมโครคอนโทรลเลอร์ประมวลผลสัญญาณสะท้อนของคลื่นอัลตราโซนิก (HC-SR04) แบบเรียลไทม์ แปลงระยะทางเป็นระดับเสียงเตือนผ่าน DFPlayer Mini พร้อมโมดูล GPS NEO-6M ถอดรหัส NMEA Sentences',
-    award: 'เหรียญทองแดงระดับชาติ & เหรียญทองระดับภาค - นักประดิษฐ์ สพฐ.',
+    award: 'เหรียญทองแดงระดับชาติ & เหรียญทองระดับภาค - การประกวดผลงานสิ่งประดิษฐ์และนวัตกรรม',
     techStack: ['Arduino', 'ESP32', 'C/C++', 'Ultrasonic Sensors', 'GPS Telemetry'],
     liveUrl: 'https://github.com/muaxzinn',
     githubUrl: 'https://github.com/muaxzinn',
@@ -139,18 +139,6 @@ const PROJECTS_DATA = [
     liveUrl: 'https://github.com/muaxzinn/DiabEye.ai',
     githubUrl: 'https://github.com/muaxzinn/DiabEye.ai',
     icon: 'fa-eye'
-  },
-  {
-    id: 'wkskincencer',
-    isFlagship: false,
-    title: 'wkskincencer',
-    subtitle: 'Skin Lesion & Melanoma AI',
-    category: 'ai-medical',
-    shortDesc: 'โมเดลตรวจคัดกรองรอยโรคและมะเร็งผิวหนังเบื้องต้นด้วยคอมพิวเตอร์วิทัศน์',
-    techStack: ['Computer Vision', 'Dermatology AI', 'TensorFlow.js'],
-    liveUrl: 'https://github.com/muaxzinn/wkskincencer',
-    githubUrl: 'https://github.com/muaxzinn/wkskincencer',
-    icon: 'fa-shield-virus'
   },
   {
     id: 'color2iron',
@@ -253,18 +241,6 @@ const PROJECTS_DATA = [
     icon: 'fa-square-root-variable'
   },
   {
-    id: 'wiang-4x4',
-    isFlagship: false,
-    title: '4x4 Math Gameshow',
-    subtitle: 'Interactive Mathematics Game Engine',
-    category: 'edtech-exams',
-    shortDesc: 'เกมคณิตศาสตร์ประลองเชาวน์ปัญญา 4x4 พร้อมตารางคะแนนสดและระบบจัดการข้อสอบ',
-    techStack: ['Game Engine', 'Real-time Score', 'Admin Panel'],
-    liveUrl: 'https://muaxzinn.github.io/wiang-4x4-gameshow/',
-    githubUrl: 'https://github.com/muaxzinn/wiang-4x4-gameshow',
-    icon: 'fa-gamepad'
-  },
-  {
     id: 'psym6',
     isFlagship: false,
     title: 'Psym6 Assessment',
@@ -361,18 +337,6 @@ const PROJECTS_DATA = [
     liveUrl: 'https://muaxzinn.github.io/Bank/',
     githubUrl: 'https://github.com/muaxzinn/Bank',
     icon: 'fa-building-columns'
-  },
-  {
-    id: 'color-picker-util',
-    isFlagship: false,
-    title: 'Color Palette Engine',
-    subtitle: 'Hex & RGB Colorimetric Utility',
-    category: 'web-utilities',
-    shortDesc: 'เครื่องมือดูดและจับคู่ชุดสีสำหรับงานออกแบบ UI และการคำนวณทางเคมี',
-    techStack: ['Color Parsing', 'Clipboard API', 'Hex Matrix'],
-    liveUrl: 'https://github.com/muaxzinn/wk-picker-color',
-    githubUrl: 'https://github.com/muaxzinn/wk-picker-color',
-    icon: 'fa-eye-dropper'
   },
   {
     id: 'no-code-study',
