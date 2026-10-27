@@ -205,18 +205,6 @@ const PROJECTS_DATA = [
     icon: 'fa-cubes'
   },
   {
-    id: 'polcexam',
-    isFlagship: false,
-    title: 'แอปติวสอบ นสต. 18 (PolicePrep)',
-    subtitle: 'PWA Cadet Exam Prep & Fitness Engine',
-    category: 'edtech-exams',
-    shortDesc: 'แอป PWA เตรียมสอบนายสิบตำรวจ คลังข้อสอบ ตารางฝึกสมรรถภาพ และใช้งานออฟไลน์ได้',
-    techStack: ['PWA', 'Offline Storage', 'Quiz Engine', 'Fitness Tracker'],
-    liveUrl: null,
-    githubUrl: 'https://github.com/muaxzinn/PolicePrep',
-    icon: 'fa-shield-halved'
-  },
-  {
     id: 'tgat2',
     isFlagship: false,
     title: 'TGAT2 Exam Simulator',
