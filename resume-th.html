@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ฟิรมัน อาแว (Firman Awea) — เรซูเม่ Software QA Tester &amp; IT (TH)</title>
+  <meta name="description" content="เรซูเม่ A4 หน้าเดียวมาตรฐานสากลของ ฟิรมัน อาแว (Firman Awea) สำหรับตำแหน่ง Software QA Tester และงานสายไอที (ภาษาไทย)" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@500;600&family=Prompt:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-paper: #ffffff;
+      --bg-viewport: #e2e8f0;
+      --bg-tint: #f8fafc;
+      --ink-primary: #0f172a;
+      --ink-secondary: #1e293b;
+      --ink-muted: #475569;
+      --accent: #0f4c81;
+      --accent-soft: #eff6ff;
+      --border: #cbd5e1;
+      --border-light: #e2e8f0;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      background: var(--bg-viewport);
+      color: var(--ink-primary);
+      font-family: 'IBM Plex Sans Thai', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.48;
+    }
+
+    .mono, .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Screen-only toolbar */
+    .screen-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #f8fafc;
+    }
+
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-radius: 8px;
+      padding: 2px;
+    }
+
+    .lang-switch a {
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #cbd5e1;
+    }
+
+    .lang-switch a.active {
+      background: #0f4c81;
+      color: #ffffff;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(30, 41, 59, 0.9);
+      color: #e2e8f0;
+    }
+
+    .tb-btn:hover { background: #334155; color: #ffffff; }
+    .tb-btn-primary { background: #0f4c81; border-color: #38bdf8; color: #ffffff; }
+    .tb-btn-primary:hover { background: #0c3d69; }
+
+    .page-stage {
+      padding: 24px 12px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Strict ISO A4 Sheet */
+    .a4-sheet {
+      width: 210mm;
+      height: 297mm;
+      background: var(--bg-paper);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
+      padding: 11.5mm 14mm 10.5mm 14mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .top-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3.2mm;
+      background: var(--accent);
+    }
+
+    /* Header */
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      padding-bottom: 8.5px;
+      border-bottom: 1.5pt solid var(--ink-primary);
+      margin-top: 1mm;
+    }
+
+    .header-identity { flex: 1; }
+
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cv-name {
+      font-family: 'Prompt', 'IBM Plex Sans Thai', sans-serif;
+      font-size: 21pt;
+      font-weight: 700;
+      color: var(--ink-primary);
+      line-height: 1.1;
+    }
+
+    .cv-name-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    .cv-role {
+      font-family: 'Prompt', 'IBM Plex Sans Thai', sans-serif;
+      font-size: 10.8pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px 13px;
+      margin-top: 6px;
+      font-size: 8.9pt;
+      color: var(--ink-secondary);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--ink-secondary);
+      text-decoration: none;
+    }
+
+    .contact-item svg {
+      width: 12px;
+      height: 12px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact-item strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    .header-qr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4px 5px 3px;
+      border: 0.8pt solid var(--border);
+      border-radius: 5px;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .header-qr img {
+      width: 55px;
+      height: 55px;
+      display: block;
+    }
+
+    .header-qr span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.4pt;
+      font-weight: 600;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    /* Sections */
+    .cv-section {
+      margin-top: 9px;
+    }
+
+    .section-title {
+      font-family: 'Prompt', 'IBM Plex Sans Thai', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 1pt solid var(--border);
+      padding-bottom: 2px;
+      margin-bottom: 5.5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .section-meta {
+      font-family: 'IBM Plex Sans Thai', 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 500;
+      color: var(--ink-muted);
+    }
+
+    .summary-text {
+      font-size: 9.2pt;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    .summary-text strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    /* Skills */
+    .skills-box {
+      background: var(--bg-tint);
+      border: 0.75pt solid var(--border-light);
+      border-radius: 5px;
+      padding: 6.5px 10px;
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      row-gap: 4px;
+      column-gap: 10px;
+      font-size: 8.9pt;
+      line-height: 1.44;
+    }
+
+    .skill-cat {
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .skill-val {
+      color: var(--ink-secondary);
+    }
+
+    .skill-val strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    /* Experience */
+    .exp-role-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 5.5px;
+    }
+
+    .exp-role-title {
+      font-family: 'Prompt', 'IBM Plex Sans Thai', sans-serif;
+      font-size: 9.8pt;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .exp-role-sub {
+      font-size: 8.8pt;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.3pt;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .qa-projects {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .qa-item {
+      padding-left: 9px;
+      border-left: 2pt solid #bfdbfe;
+    }
+
+    .qa-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 1.5px;
+    }
+
+    .qa-item-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--ink-primary);
+    }
+
+    .qa-item-scope {
+      font-size: 8.6pt;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .qa-item-stack {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.6pt;
+      color: var(--ink-muted);
+      white-space: nowrap;
+    }
+
+    .qa-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+    }
+
+    .qa-bullets li {
+      position: relative;
+      padding-left: 11px;
+      font-size: 8.85pt;
+      color: var(--ink-secondary);
+      line-height: 1.44;
+    }
+
+    .qa-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 1px;
+      top: 6px;
+      width: 3.6px;
+      height: 3.6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .qa-bullets strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    /* Portfolio Banner */
+    .portfolio-callout {
+      margin-top: 7.5px;
+      padding: 5.5px 10px;
+      background: var(--accent-soft);
+      border: 0.75pt solid #bfdbfe;
+      border-radius: 4px;
+      font-size: 8.5pt;
+      color: var(--ink-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .portfolio-callout strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Education & Honors */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      gap: 15px;
+    }
+
+    .compact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 8.7pt;
+      color: var(--ink-secondary);
+      line-height: 1.44;
+    }
+
+    .compact-list li strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    .muted-inline {
+      color: var(--ink-muted);
+      font-size: 8.2pt;
+    }
+
+    @media print {
+      html, body { background: #ffffff; width: 210mm; height: 297mm; }
+      .screen-toolbar { display: none !important; }
+      .page-stage { padding: 0; display: block; }
+      .a4-sheet {
+        box-shadow: none;
+        margin: 0;
+        width: 210mm;
+        height: 297mm;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-toolbar">
+    <div class="toolbar-left">
+      <span style="font-weight: 700;">ฟิรมัน อาแว — เรซูเม่สาย QA &amp; IT (Universal)</span>
+      <div class="lang-switch" role="navigation" aria-label="สลับภาษาเรซูเม่">
+        <a href="resume.html">English (EN)</a>
+        <a href="resume-th.html" class="active">ภาษาไทย (TH)</a>
+      </div>
+    </div>
+    <div class="toolbar-actions">
+      <a href="index.html" class="tb-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+        พอร์ตโฟลิโอ
+      </a>
+      <a href="Firman_Awea_QA_Tester_Resume_TH.pdf" download class="tb-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        ดาวน์โหลด PDF (ไทย)
+      </a>
+      <button onclick="window.print()" class="tb-btn tb-btn-primary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+        พิมพ์ A4
+      </button>
+    </div>
+  </div>
+
+  <div class="page-stage">
+    <main class="a4-sheet" aria-label="เรซูเม่ ฟิรมัน อาแว ภาษาไทย">
+      <div class="top-bar" aria-hidden="true"></div>
+
+      <!-- HEADER -->
+      <header class="cv-header">
+        <div class="header-identity">
+          <div class="name-row">
+            <h1 class="cv-name">ฟิรมัน อาแว</h1>
+            <span class="cv-name-en">(Firman Awea)</span>
+          </div>
+          <div class="cv-role">Software QA Tester · ผู้เชี่ยวชาญการทดสอบระบบซอฟต์แวร์และไอที</div>
+          <div class="contact-grid">
+            <a class="contact-item" href="tel:0917257551">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span class="num"><strong>091-725-7551</strong></span>
+            </a>
+            <a class="contact-item" href="mailto:firman.awea@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>firman.awea@gmail.com</span>
+            </a>
+            <a class="contact-item" href="https://github.com/muaxzinn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              <span>github.com/muaxzinn</span>
+            </a>
+            <a class="contact-item" href="https://muaxzinn.github.io/muaxzinnport/" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              <span><strong>muaxzinn.github.io/muaxzinnport</strong></span>
+            </a>
+            <span class="contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span><strong>กรุงเทพฯ · On-Site / Hybrid · พร้อมเริ่มงานทันที</strong></span>
+            </span>
+          </div>
+        </div>
+        <div class="header-qr" title="สแกนเพื่อเปิดดูพอร์ตโฟลิโอออนไลน์">
+          <img src="assets/portfolio-qr.svg" alt="QR Code พอร์ตโฟลิโอ" />
+          <span>PORTFOLIO</span>
+        </div>
+      </header>
+
+      <!-- PROFILE SUMMARY -->
+      <section class="cv-section">
+        <h2 class="section-title">สรุปคุณสมบัติ (Professional Summary)</h2>
+        <p class="summary-text">
+          ผู้เชี่ยวชาญด้าน <strong>Software QA Tester และพัฒนาระบบไอที</strong> ที่มีประสบการณ์ลงมือปฏิบัติจริงกว่า <strong>2 ปี (<span class="num">2024–2026</span>)</strong> ในการทดสอบและส่งมอบระบบ Web, SaaS, Mobile PWA, ระบบชำระเงิน POS และ IoT ครบวงจร เชี่ยวชาญการ<strong>จัดเตรียม Test Data, ออกแบบ Test Case &amp; Test Script, รัน Test Execution, บริหาร TCM, SIT และ UAT</strong> พร้อมประยุกต์ใช้ <strong>AI Tools อย่างเหมาะสม</strong> ภายใต้การตรวจสอบผลจริงโดยมนุษย์ทุกขั้นตอน
+        </p>
+      </section>
+
+      <!-- CORE SKILLS -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <span>ทักษะหลักด้าน QA และเทคโนโลยี (Core Skills)</span>
+          <span class="section-meta">Manual-First · SQL/API · Responsible AI</span>
+        </h2>
+        <div class="skills-box">
+          <div class="skill-cat">กระบวนการทดสอบ (QA)</div>
+          <div class="skill-val"><strong>Manual Testing</strong>, ออกแบบ Test Case &amp; Test Script, <strong>Test Execution</strong>, <strong>TCM</strong>, <strong>SIT</strong>, <strong>UAT</strong>, Regression, Smoke/Sanity, Boundary &amp; Negative Testing, ทดสอบข้ามเบราว์เซอร์ / iOS Safari และรายงาน Bug</div>
+
+          <div class="skill-cat">Test Data, SQL &amp; Tools</div>
+          <div class="skill-val"><strong>จัดเตรียม Test Data</strong> (JSON, CSV, SQL), ตรวจฐานข้อมูล PostgreSQL / Supabase / D1, ทดสอบ REST API &amp; Webhook (cURL, DevTools), <strong>Playwright</strong>, <strong>Vitest</strong>, Pytest, Git/GitHub, WCAG 2.1 AA และ OWASP Security</div>
+
+          <div class="skill-cat">การใช้ AI ในงาน QA</div>
+          <div class="skill-val">ใช้งาน <strong>Gemini, Claude และ Playwright MCP</strong> ช่วยแตกเงื่อนไข Edge Cases และร่างชุดข้อมูลทดสอบ โดยควบคุมคุณภาพด้วย <strong>Manual Verification Gate</strong> ตรวจสอบผลจริงทุกเคสก่อนส่งมอบ</div>
+        </div>
+      </section>
+
+      <!-- SELECTED QA & IT EXPERIENCE -->
+      <section class="cv-section">
+        <h2 class="section-title">
+          <span>ประสบการณ์ด้าน QA และการทดสอบระบบ (Selected Projects)</span>
+          <span class="section-meta">คัดเฉพาะผลงานเด่นที่ใช้งานจริง</span>
+        </h2>
+
+        <div class="exp-role-bar">
+          <div>
+            <span class="exp-role-title">Independent QA Tester &amp; Systems Builder</span>
+            <span class="exp-role-sub"> — ระบบ Production, องค์กรท้องถิ่น และงานไอที</span>
+          </div>
+          <span class="exp-date">2024 – ปัจจุบัน (2+ ปี)</span>
+        </div>
+
+        <div class="qa-projects">
+          <article class="qa-item">
+            <div class="qa-item-head">
+              <div><span class="qa-item-name">Cherish Moments V2</span> <span class="qa-item-scope">· ทดสอบ SIT, UAT ระบบชำระเงิน SaaS</span></div>
+              <span class="qa-item-stack">Next.js · Supabase · R2 · Stripe PromptPay</span>
+            </div>
+            <ul class="qa-bullets">
+              <li>ออกแบบและรัน <strong>Test Case แบบ SIT และ UAT</strong> ครบโฟลว์ ตั้งแต่ Google OAuth, การจ่ายเงิน Stripe Live PromptPay QR, เงื่อนไขโควต้าชวนเพื่อน จนถึงการลบข้อมูลหมดอายุอัตโนมัติ (TTL)</li>
+              <li><strong>เตรียม Test Data เคสลบและความปลอดภัย</strong> (ตรวจไฟล์ภาพ WebP, ทดสอบ CSRF, Rate-Limit และบอท) ผ่านครบ <strong><span class="num">23/23</span> เทสต์</strong> พร้อมเอกสารสรุปส่งมอบระบบจริง</li>
+            </ul>
+          </article>
+
+          <article class="qa-item">
+            <div class="qa-item-head">
+              <div><span class="qa-item-name">CYC Photo Booth Studio</span> <span class="qa-item-scope">· UAT หน้างาน (เทศบาลฯ บูเก๊ะตา)</span></div>
+              <span class="qa-item-stack">iPad Pro Safari · Cloudflare D1/R2 · Vitest</span>
+            </div>
+            <ul class="qa-bullets">
+              <li>รัน <strong>UAT บนอุปกรณ์จริง iPad Pro (iOS Safari)</strong> และแกลเลอรี QR บนมือถือ ค้นพบและยืนยันการแก้บั๊กกล้อง WebKit ค้าง ระบบรีเซ็ตความเป็นส่วนตัวใน <span class="num">60</span> วินาที และการเรนเดอร์ภาพ</li>
+              <li>ทดสอบ <strong>SIT</strong> การเชื่อมต่อ Edge API, ฐานข้อมูล D1, คลังไฟล์ R2 และระบบลบไฟล์อัตโนมัติ <span class="num">48</span> ชม. ด้วยสคริปต์ Vitest และการตรวจสิทธิ์เซสชัน</li>
+            </ul>
+          </article>
+
+          <article class="qa-item">
+            <div class="qa-item-head">
+              <div><span class="qa-item-name">PolicePrep</span> <span class="qa-item-scope">· Test Data &amp; Regression QA</span></div>
+              <span class="qa-item-stack">Next.js · PostgreSQL RPC · QA Gate</span>
+            </div>
+            <ul class="qa-bullets">
+              <li><strong>จัดเตรียมและตรวจสอบความถูกต้องของ Test Data</strong> คลังข้อสอบจริง <strong><span class="num">7,038</span> ข้อ</strong> และภาพประกอบ <strong><span class="num">1,386</span> ไฟล์</strong> ด้วยสคริปต์ตรวจคุณภาพและชุดทดสอบ Regression</li>
+              <li>ตรวจสอบความถูกต้องของฐานข้อมูลและการล็อกแถวข้อมูล (<span class="mono">SELECT ... FOR UPDATE</span>) บน Supabase RPC ควบคู่กับสคริปต์ทดสอบฝั่ง Frontend และ Backend</li>
+            </ul>
+          </article>
+
+          <article class="qa-item">
+            <div class="qa-item-head">
+              <div><span class="qa-item-name">Interactive Learning Lab (v1.1)</span> <span class="qa-item-scope">· TCM &amp; 64 Suites QA</span></div>
+              <span class="qa-item-stack">Next.js · TypeScript · PWA · WCAG 2.1 AA</span>
+            </div>
+            <ul class="qa-bullets">
+              <li>วางระบบ <strong>Test Case Management (TCM)</strong> และรันทดสอบผ่านครบ <strong><span class="num">186/186</span> เทสต์เคส (<span class="num">64</span> Suites · ผ่าน <span class="num">100%</span>)</strong> ครอบคลุมความแม่นยำระบบ, ช่องโหว่ XSS, PWA ออฟไลน์ และมาตรฐาน WCAG 2.1 AA</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="portfolio-callout">
+          <span><strong>คลังผลงานฉบับเต็ม (<span class="num">36+</span> โปรเจกต์):</strong> ระบบ POS (<span class="mono">minipos v2</span>), วิทยาศาสตร์ (<span class="mono">XQuant</span>), AI การแพทย์ (<span class="mono">SBLT-CAS</span>) และเครื่องมือ AI</span>
+          <span class="mono" style="font-size: 7.9pt; font-weight: 600; color: var(--accent); white-space: nowrap;">muaxzinn.github.io/muaxzinnport</span>
+        </div>
+      </section>
+
+      <!-- EDUCATION & HONORS -->
+      <section class="cv-section">
+        <div class="bottom-grid">
+          <div>
+            <h2 class="section-title"><span>การศึกษาและใบรับรอง</span></h2>
+            <ul class="compact-list">
+              <li><strong>สายการเรียนวิทยาศาสตร์–คณิตศาสตร์</strong> · GPAX <strong class="num">3.95</strong><br /><span class="muted-inline">นักเรียนทุนซีพี "คนเก่งนวัตกร" ระดับประเทศ</span></li>
+              <li><strong>ใบรับรอง:</strong> Python Programming <span class="num">40</span> ชม. (True Digital Park) · AI for Workplace (Samsung) · Medical AI (ThAIMed)</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="section-title"><span>ประสบการณ์ภาคสนามและรางวัล</span></h2>
+            <ul class="compact-list">
+              <li><strong>ฝึกงานโรงพยาบาลแว้ง</strong> <span class="muted-inline">(แผนก ER, X-Ray, เภสัชกรรม)</span> · <strong>แกนนำเยาวชนสร้างเสริมสุขภาพ (สสส.)</strong></li>
+              <li><strong>รางวัล:</strong> ASTI Feynman Challenge <span class="num">2025</span> (นานาชาติ) · เหรียญทองแดงระดับชาติ (Smart Cap IoT) · STEAMS (ม.เกษตรศาสตร์)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

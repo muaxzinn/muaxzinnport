@@ -11,7 +11,7 @@ const CONFIG = {
     handle: 'muaxzinn',
     role: 'AI-Augmented System Architect & Innovator',
     location: 'Narathiwat, Thailand',
-    email: 'muaxzinn00374345@gmail.com',
+    email: 'firman.awea@gmail.com',
     phone: '091-725-7551',
     github: 'https://github.com/muaxzinn',
     facebook: 'https://www.facebook.com/share/1Y438VRbRE/',
@@ -39,7 +39,7 @@ const CONFIG = {
 
   // System Stats
   stats: {
-    projectsCount: 25,
+    projectsCount: 36,
     majorAwards: 4,
     gpax: '3.95',
     browserAI: '100%'

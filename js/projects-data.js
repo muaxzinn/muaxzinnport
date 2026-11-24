@@ -11,6 +11,80 @@ const PROJECTS_DATA = [
   // FLAGSHIP INNOVATIONS (Top-Tier Masterpieces)
   // ==========================================
   {
+    id: 'cherish-moments',
+    isFlagship: true,
+    title: 'Cherish Moments V2',
+    subtitle: 'Digital Memory Card SaaS · Stripe PromptPay & OWASP Security',
+    category: 'web-utilities',
+    shortDesc: 'แพลตฟอร์มสร้างการ์ดความทรงจำดิจิทัลหลายหน้าบน Next.js 16 + Supabase + Cloudflare R2 พร้อมชำระเงิน Stripe Live PromptPay QR ผ่านการทดสอบ SIT/UAT และ Security 23/23 เทสต์',
+    fullDesc: 'Digital Memory Card Sandbox แบบ Full-Stack Production (Singapore Region) รองรับ Google OAuth 2.0 + PKCE, สตูดิโอสร้างการ์ด 8 บล็อกโต้ตอบ, เพลงประกอบลิขสิทธิ์ปลอดภัย, โควต้าฟรีและระบบชวนเพื่อน รวมถึงระบบเก็บรักษาข้อมูล TTL อัตโนมัติ',
+    architecture: 'Next.js 16 App Router SSR + Supabase PostgreSQL (RLS Deny-All & Server-Only RPCs) + Cloudflare R2 Media Gateway (WebP Magic-Byte Validation) + Stripe Live PromptPay Webhook & 2s Polling + OWASP 2025 CSRF/Rate-Limit/AI-Bot Defense',
+    award: 'Production Live SaaS · 23/23 Automated & Security QA Tests Passed',
+    techStack: ['Next.js 16', 'Supabase', 'Cloudflare R2', 'Stripe Live', 'QA / SIT / UAT'],
+    liveUrl: 'https://cherish-moments-zeta.vercel.app',
+    githubUrl: 'https://github.com/muaxzinn/Cherish-Moments',
+    icon: 'fa-envelope-open-text',
+    accentColor: 'rose',
+    roadmap: [
+      { ver: 'v1.0', label: 'Card Sandbox', active: false },
+      { ver: 'v2.0', label: 'Live SaaS & Security QA', active: true }
+    ]
+  },
+  {
+    id: 'interactive-lab',
+    isFlagship: true,
+    title: 'Interactive Learning Lab (v1.1)',
+    subtitle: '69 STEM Scientific Workbenches · 186/186 Tests Passed',
+    category: 'edtech-exams',
+    shortDesc: 'แพลตฟอร์มห้องแล็บวิทยาศาสตร์และคณิตศาสตร์เชิงโต้ตอบ 69 โมดูล พร้อมระบบ TCM และ Automated QA ผ่านครบ 186/186 เทสต์ (64 Suites) และมาตรฐาน WCAG 2.1 AA',
+    fullDesc: 'รวม 61 OpenLyceum Scientific Simulations และ 8 Native Laboratories (Circuit Solver, Stoichiometry, Logic Gates, 3D WebGL, Thai Phonology) บน Next.js 15 PWA ที่ทำงานออฟไลน์ได้สมบูรณ์พร้อมรายงาน TEST_REPORT.md',
+    architecture: 'Next.js 15 App Router + Three.js WebGL + Mafs 2D + Matter.js + KaTeX + Node.js Native Test Runner (186 tests / 64 suites, 99.91% TS coverage, XSS fuzzing, 3-byte Thai UTF-8 safety)',
+    award: '186/186 Tests Passed (64 Suites · 100% Pass Rate · WCAG 2.1 AA)',
+    techStack: ['Next.js 15', 'Three.js', 'PWA', 'TCM / QA Suite', 'WCAG 2.1 AA'],
+    liveUrl: 'https://lab-beige-mu.vercel.app',
+    githubUrl: 'https://github.com/muaxzinn/lab',
+    icon: 'fa-atom',
+    accentColor: 'cyan',
+    roadmap: [
+      { ver: 'v1.0', label: '164-Test Release', active: false },
+      { ver: 'v1.1', label: '69 Labs · 186 Tests', active: true }
+    ]
+  },
+  {
+    id: 'cyc-photobooth',
+    isFlagship: true,
+    title: 'CYC Photo Booth Studio PWA',
+    subtitle: 'iPad Pro Event Kiosk · Cloudflare Workers, D1 & R2',
+    category: 'web-utilities',
+    shortDesc: 'ระบบตู้ถ่ายภาพ Photo Booth PWA สำหรับงานอีเวนต์สภาเด็กและเยาวชนเทศบาลตำบลบูเก๊ะตา บน iPad Pro พร้อม QR Gallery มือถือเปลี่ยนกรอบ/ฟิลเตอร์ได้ทันทีและลบอัตโนมัติใน 48 ชม.',
+    fullDesc: 'ออกแบบและผ่านการทดสอบ On-Device UAT บน iPad Pro (iOS Safari) รองรับกรอบ 20 แบบ ฟิลเตอร์ 8 แบบ รีเซ็ตความเป็นส่วนตัวอัตโนมัติใน 60 วินาที และ Cloudflare Cron Auto-Purge ทุก 1 ชั่วโมง',
+    architecture: 'Cloudflare Pages (Next.js PWA) + Cloudflare Workers Edge API + D1 SQLite + R2 Object Storage + Vitest API Test Suites + 32-Byte Session Token Isolation',
+    award: 'Deployed for Buketa Municipality Youth Council (On-Device UAT)',
+    techStack: ['Cloudflare Workers', 'D1 / R2', 'iPad Kiosk PWA', 'Vitest', 'Canvas 2D'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-camera-retro',
+    accentColor: 'emerald',
+    roadmap: null
+  },
+  {
+    id: 'policeprep',
+    isFlagship: true,
+    title: 'PolicePrep',
+    subtitle: '7,038-Question Exam Platform · Atomic RPC & QA Gate',
+    category: 'edtech-exams',
+    shortDesc: 'แพลตฟอร์มติวสอบและคลังข้อสอบนายสิบตำรวจจริง 7,038 ข้อ พร้อมภาพประกอบ 1,386 ไฟล์ สคริปต์ตรวจคุณภาพ Test Data และระบบ Atomic Concurrency Lock บน Supabase',
+    fullDesc: 'ระบบจำลองการสอบและวิเคราะห์จุดอ่อนรายวิชา ครอบคลุม 7 รายวิชา 22 ชุดข้อสอบ พร้อมระบบ Backoffice, Exam Regression Tester และ Quality Gate Scripts ตรวจสอบความถูกต้องของชุดข้อมูลก่อนดีพลอย',
+    architecture: 'Next.js 15 App Router + TypeScript + Supabase PostgreSQL (RLS & SELECT ... FOR UPDATE Atomic RPCs) + QA Quality Gate & Frontend/Backend Test Suites',
+    award: '7,038 Validated Exam Records · 1,386 Media Assets · QA Regression Gate',
+    techStack: ['Next.js 15', 'Supabase RPC', 'Test Data QA', 'TypeScript', 'Tailwind CSS'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-shield-halved',
+    accentColor: 'violet',
+    roadmap: null
+  },
+  {
     id: 'sblt-cas',
     isFlagship: true,
     title: 'SBLT-CAS',
@@ -337,6 +411,90 @@ const PROJECTS_DATA = [
     liveUrl: 'https://muaxzinn.github.io/muaxzinn-port-no-code/',
     githubUrl: 'https://github.com/muaxzinn/muaxzinn-port-no-code',
     icon: 'fa-wand-magic-sparkles'
+  },
+  {
+    id: 'localdeli',
+    isFlagship: false,
+    title: 'LocalDeli Multi-Portal POS',
+    subtitle: 'Rural Multi-Zone Delivery & Pricing Contracts',
+    category: 'embedded-fintech',
+    shortDesc: 'ระบบ POS และจัดส่งอาหารหลายโซนพื้นที่พร้อมสคริปต์ทดสอบราคาและสัญญาข้อมูล (Contract Tests)',
+    techStack: ['Next.js', 'POS Integration', 'Contract Tests'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-motorcycle'
+  },
+  {
+    id: 'typhoon-ocr',
+    isFlagship: false,
+    title: 'Typhoon OCR Studio',
+    subtitle: 'Local Apple MLX Vision-Language OCR',
+    category: 'ai-medical',
+    shortDesc: 'เครื่องมือสกัดข้อความเอกสารไทย-อังกฤษด้วยโมเดล Typhoon OCR 1.5 (2B) รันโลคอลบน Apple Silicon',
+    techStack: ['Python', 'Apple MLX', 'Vision-Language OCR'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-file-lines'
+  },
+  {
+    id: 'firman-agentic-os',
+    isFlagship: false,
+    title: 'Firman Agentic OS & Skill Hub',
+    subtitle: '52 Curated AI Engineering & QA Skills',
+    category: 'web-utilities',
+    shortDesc: 'ศูนย์รวมสกิล AI Agent 52 ตัว รวมถึง Full-Stack Testing, Dual-Gate QA Verification และ Anti-Slop Design System',
+    techStack: ['AI Agents', 'QA Workflows', 'Node.js CLI'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-robot'
+  },
+  {
+    id: 'nodecentral',
+    isFlagship: false,
+    title: 'NodeCentral (macOS Native)',
+    subtitle: 'SwiftUI Workspace & pnpm Store Control Plane',
+    category: 'web-utilities',
+    shortDesc: 'แอป macOS Native ภาษา Swift (~20MB RAM) สำหรับจัดการ pnpm Central Store และตรวจ Dependency Matrix ข้ามโปรเจกต์',
+    techStack: ['Swift', 'SwiftUI', 'macOS Native', 'pnpm'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-laptop-code'
+  },
+  {
+    id: 'macbattery-lab',
+    isFlagship: false,
+    title: 'MacBattery Analytics & PowerLab',
+    subtitle: 'macOS Power & Battery Telemetry Utility',
+    category: 'web-utilities',
+    shortDesc: 'เครื่องมือวิเคราะห์สุขภาพแบตเตอรี่และพฤติกรรมการใช้พลังงานบน macOS ด้วย Python',
+    techStack: ['Python', 'macOS Telemetry', 'Analytics'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-battery-three-quarters'
+  },
+  {
+    id: 'nst18-polcexam',
+    isFlagship: false,
+    title: 'NST18 & PolcExam Academies',
+    subtitle: 'Offline-First Police Exam Companion PWAs',
+    category: 'edtech-exams',
+    shortDesc: 'แอป PWA ออฟไลน์เตรียมสอบ นสต. รุ่น 18 สำหรับ Lion King Academy และ Dolphin Police Academy',
+    techStack: ['PWA', 'Service Worker', 'Offline-First'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-graduation-cap'
+  },
+  {
+    id: 'bangkok-trip',
+    isFlagship: false,
+    title: 'Bangkok Trip Planner 2026',
+    subtitle: 'Route Optimizer & Interactive Leaflet Map',
+    category: 'web-utilities',
+    shortDesc: 'เว็บวางแผนเที่ยวกรุงเทพฯ คำนวณงบประมาณ เปรียบเทียบโรงแรม และจัดเส้นทางบนแผนที่ Leaflet',
+    techStack: ['Vanilla JS', 'Leaflet Maps', 'Route Logic'],
+    liveUrl: null,
+    githubUrl: null,
+    icon: 'fa-map-location-dot'
   }
 ];
 
